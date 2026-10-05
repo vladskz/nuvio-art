@@ -602,37 +602,6 @@
           "showStreams": false
         }
       }
-    },
-    {
-      "type": "custom",
-      "instanceId": "4ed",
-      "enabled": false,
-      "options": {
-        "name": "TOR",
-        "manifestUrl": "https://torrentio-eu.stremio.ru/debridoptions=nodownloadlinks|torbox=e4732556-61b8-4f83-8cef-ec9fdf0a52d3/manifest.json",
-        "timeout": 7000,
-        "resources": [
-          "stream",
-          "catalog"
-        ],
-        "mediaTypes": [],
-        "libraryAddon": false,
-        "resultPassthrough": false
-      }
-    },
-    {
-      "type": "debridio",
-      "instanceId": "1ae",
-      "enabled": false,
-      "options": {
-        "name": "Debridio Scraper",
-        "timeout": 7000,
-        "resources": [
-          "stream"
-        ],
-        "debridioApiKey": "",
-        "mediaTypes": []
-      }
     }
   ],
   "catalogModifications": [
