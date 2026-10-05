@@ -1,7 +1,8 @@
 # Nuvio Art
 
 Image assets for the Nuvio collection setup (`catalogs.json`), plus the
-automation that regenerates **dynamic backdrops** from TMDB every month.
+automation that regenerates **dynamic backdrops** from your MDBList/TMDB
+catalogs every month.
 
 ## Structure
 
@@ -34,8 +35,7 @@ A GitHub Actions workflow (`monthly-backdrops.yml`) runs on the **1st of every
 month** (and on demand) and:
 
 1. reads `templates/Nuvio-Collections.json` for every folder,
-2. resolves each folder's catalog sources to TMDB queries via
-   `templates/AIOMetadata.json`,
+2. resolves each folder's `mdblist.*` / TMDB catalog sources to title lists,
 3. fetches the current top titles and builds a landscape collage per folder,
 4. commits the new `collections/<group>/backdrop/<slug>.jpg` + `.webp` files,
 5. purges the jsDelivr cache so the new images go live immediately.
@@ -71,12 +71,12 @@ The look is controlled by constants at the top of
 
 | Constant | Default | Meaning |
 |----------|---------|---------|
-| `TILE_W` / `TILE_H` | `560` / `315` | tile size (landscape 16:9) |
-| `TILT_DEG` | `0` | grid rotation in degrees |
+| `TILE_W` / `TILE_H` | `372` / `210` | tile size (landscape 16:9) |
+| `TILT_DEG` | `10` | grid rotation in degrees |
 | `STAGGER` | `0.5` | horizontal row offset |
-| `GAP` | `16` | gap between tiles |
-| `CARD_RADIUS` | `12` | tile corner radius |
-| `ROWS` / `COLS` | `9` / `9` | source grid size |
+| `GAP` | `9` | gap between tiles |
+| `CARD_RADIUS` | `9` | tile corner radius |
+| `ROWS` / `COLS` | `10` / `10` | source grid size |
 | `FOCUS_X` / `FOCUS_Y` | `0.5` / `0.53` | focal point of the visible crop |
 
 You can also override them per run with `--tile-width`, `--tile-height`,
@@ -93,6 +93,22 @@ Each folder in your `catalogs.json` needs a `heroBackdropUrl` (and optionally
 
 The `templates/Nuvio-Collections.json` in this repo already includes the
 `heroBackdropUrl` for every folder as a ready reference.
+
+## Full Nuvio config (template)
+
+A complete, shareable Nuvio setup is included with all API keys blanked:
+
+| File | Purpose |
+|------|---------|
+| `SKZ-AIOMeta.json` | AIOMetadata addon config (catalogs + art providers) |
+| `SKZ-AIOS.json` | AIOStreams addon config (sources + debrid services) |
+| `SKZ-AIOS-Formatter.json` | AIOStreams formatter rules |
+| `SKZ-Nuvio-Collection.json` | Nuvio collections pack, linked to this repo's art |
+
+To reuse it, paste your own keys into the `apiKeys` section of
+`SKZ-AIOMeta.json` (tmdb, mdblist, fanart, tvdb, …) and into the debrid
+`credentials` in `SKZ-AIOS.json`. The collection's `coverImageUrl`,
+`heroBackdropUrl`, and `titleLogoUrl` already point at this repo's jsDelivr URLs.
 
 ## Naming
 

@@ -1,0 +1,872 @@
+[
+  {
+    "id": "collections.discover",
+    "title": "🔭 Discover",
+    "folders": [
+      {
+        "id": "collections.discover.trending",
+        "title": "‎",
+        "sources": [
+          {
+            "type": "movie",
+            "genre": "",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.189874"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/discover/cover/trending.jpeg",
+        "catalogSources": [
+          {
+            "type": "movie",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.189874"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/discover/backdrop/trending.webp"
+      },
+      {
+        "id": "folder-284672f5",
+        "title": "‎",
+        "sources": [
+          {
+            "type": "series",
+            "genre": "",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.189876"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/discover/cover/trending-tv.jpeg",
+        "catalogSources": [
+          {
+            "type": "series",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.189876"
+          }
+        ],
+        "focusGifEnabled": false,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/discover/backdrop/trending-tv.webp"
+      },
+      {
+        "id": "folder-5a84d4bb",
+        "title": "‎",
+        "sources": [
+          {
+            "type": "movie",
+            "genre": "",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.139113"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/discover/cover/latest.jpeg",
+        "catalogSources": [
+          {
+            "type": "movie",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.139113"
+          }
+        ],
+        "focusGifEnabled": false,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/discover/backdrop/latest.webp"
+      },
+      {
+        "id": "folder-a56a7950",
+        "title": "‎",
+        "sources": [
+          {
+            "type": "series",
+            "genre": "",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.139114"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/discover/cover/latest-tv.jpeg",
+        "catalogSources": [
+          {
+            "type": "series",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.139114"
+          }
+        ],
+        "focusGifEnabled": false,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/discover/backdrop/latest-tv.webp"
+      }
+    ],
+    "pinToTop": true,
+    "viewMode": "FOLLOW_LAYOUT",
+    "showAllTab": false,
+    "backdropImageUrl": "",
+    "focusGlowEnabled": true
+  },
+  {
+    "id": "collections.streaming",
+    "title": "🎬 Streaming",
+    "folders": [
+      {
+        "id": "collections.streaming.netflix",
+        "title": "‎netflix",
+        "sources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.152781"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.152780"
+          },
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.148474"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.148472"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/netflix.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/netflix.png",
+        "catalogSources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.152781"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.152780"
+          },
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.148474"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.148472"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/netflix.webp"
+      },
+      {
+        "id": "collections.streaming.prime-video",
+        "title": "‎amazon",
+        "sources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.152784"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.152783"
+          },
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.148469"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.148466"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/prime-video.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/prime-video.png",
+        "catalogSources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.152784"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.152783"
+          },
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.148469"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.148466"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/prime-video.webp"
+      },
+      {
+        "id": "collections.streaming.disney-plus",
+        "title": "‎disney",
+        "sources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.163338"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.163336"
+          },
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.148470"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.148468"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/disney-plus.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/disney-plus.png",
+        "catalogSources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.163338"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.163336"
+          },
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.148470"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.148468"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/disney-plus.webp"
+      },
+      {
+        "id": "collections.streaming.apple-tv",
+        "title": "‎apple",
+        "sources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.75084"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.75085"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/apple-tv.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/apple-tv.png",
+        "catalogSources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.75084"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.75085"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/apple-tv.webp"
+      },
+      {
+        "id": "collections.streaming.hbo-max",
+        "title": "‎hbo",
+        "sources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.152786"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.152785"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/hbo-max.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/hbo-max.png",
+        "catalogSources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.152786"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.152785"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/hbo-max.webp"
+      },
+      {
+        "id": "collections.streaming.peacock",
+        "title": "‎skyshowtime",
+        "sources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.158014"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.158013"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/sky-showtime.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/sky-showtime.png",
+        "catalogSources": [
+          {
+            "type": "series",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.158014"
+          },
+          {
+            "type": "movie",
+            "genre": "none",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.158013"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/sky-showtime.webp"
+      }
+    ],
+    "pinToTop": true,
+    "viewMode": "FOLLOW_LAYOUT",
+    "showAllTab": false,
+    "focusGlowEnabled": true
+  },
+  {
+    "id": "collections.genres",
+    "title": "🎭 Genres",
+    "folders": [
+      {
+        "id": "collections.genres.crime",
+        "title": "Crime",
+        "sources": [
+          {
+            "type": "series",
+            "genre": "Crime",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.167314"
+          },
+          {
+            "type": "movie",
+            "genre": "Crime",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.167312"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/luckynumb3rs/stremio-perfect-setup/collections/genres/title/crime.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/cover/crime.jpg",
+        "catalogSources": [
+          {
+            "type": "series",
+            "genre": "Crime",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.167314"
+          },
+          {
+            "type": "movie",
+            "genre": "Crime",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.167312"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/backdrop/crime.webp"
+      },
+      {
+        "id": "folder-beb798a7",
+        "title": "Drama",
+        "sources": [
+          {
+            "type": "movie",
+            "genre": "Drama",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.91296"
+          },
+          {
+            "type": "series",
+            "genre": "Drama",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.91297"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "https://github.com/luckynumb3rs/stremio-perfect-setup/blob/main/collections/genres/title/drama.png?raw=true",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/cover/drama.png",
+        "catalogSources": [
+          {
+            "type": "movie",
+            "genre": "Drama",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.91296"
+          },
+          {
+            "type": "series",
+            "genre": "Drama",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.91297"
+          }
+        ],
+        "focusGifEnabled": false,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/backdrop/drama.webp"
+      },
+      {
+        "id": "e8c403b2-88fb-4886-a3a8-24e4f2263d07",
+        "title": "Thriller",
+        "sources": [
+          {
+            "type": "movie",
+            "genre": "",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.91893"
+          },
+          {
+            "type": "series",
+            "genre": "",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.91894"
+          }
+        ],
+        "hideTitle": false,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "https://i.imgur.com/qUNWnr5.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/cover/thriller.png",
+        "catalogSources": [
+          {
+            "type": "movie",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.91893"
+          },
+          {
+            "type": "series",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.91894"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/backdrop/thriller.webp"
+      },
+      {
+        "id": "collections.genres.horror",
+        "title": "Horror",
+        "sources": [
+          {
+            "type": "movie",
+            "genre": "Horror",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.91215"
+          },
+          {
+            "type": "series",
+            "genre": "Horror",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.91217"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/luckynumb3rs/stremio-perfect-setup/collections/genres/title/horror.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/cover/horror.png",
+        "catalogSources": [
+          {
+            "type": "movie",
+            "genre": "Horror",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.91215"
+          },
+          {
+            "type": "series",
+            "genre": "Horror",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.91217"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/backdrop/horror.webp"
+      },
+      {
+        "id": "collections.genres.action",
+        "title": "Action",
+        "sources": [
+          {
+            "type": "movie",
+            "genre": "Action",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.91211"
+          },
+          {
+            "type": "series",
+            "genre": "Action",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.91213"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/luckynumb3rs/stremio-perfect-setup/collections/genres/title/action.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/cover/action.png",
+        "catalogSources": [
+          {
+            "type": "movie",
+            "genre": "Action",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.91211"
+          },
+          {
+            "type": "series",
+            "genre": "Action",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.91213"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/backdrop/action.webp"
+      },
+      {
+        "id": "collections.genres.comedy",
+        "title": "Comedy",
+        "sources": [
+          {
+            "type": "movie",
+            "genre": "Comedy",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.91223"
+          },
+          {
+            "type": "series",
+            "genre": "Comedy",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.91224"
+          },
+          {
+            "type": "movie",
+            "genre": "Comedy",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.128040"
+          },
+          {
+            "type": "series",
+            "genre": "Comedy",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.128041"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/luckynumb3rs/stremio-perfect-setup/collections/genres/title/comedy.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/cover/comedy.png",
+        "catalogSources": [
+          {
+            "type": "movie",
+            "genre": "Comedy",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.91223"
+          },
+          {
+            "type": "series",
+            "genre": "Comedy",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.91224"
+          },
+          {
+            "type": "movie",
+            "genre": "Comedy",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.128040"
+          },
+          {
+            "type": "series",
+            "genre": "Comedy",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.128041"
+          }
+        ],
+        "focusGifEnabled": true,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/genres/backdrop/comedy.webp"
+      }
+    ],
+    "pinToTop": true,
+    "viewMode": "FOLLOW_LAYOUT",
+    "showAllTab": false,
+    "backdropImageUrl": "",
+    "focusGlowEnabled": true
+  },
+  {
+    "id": "collection-6c49ffa3",
+    "title": "Seasonal Specials",
+    "folders": [
+      {
+        "id": "folder-a6edbf45",
+        "title": "‎",
+        "sources": [
+          {
+            "type": "movie",
+            "genre": "",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.190143"
+          },
+          {
+            "type": "movie",
+            "genre": "",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.190147"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "https://kao-xt.com/Holiday%20Specials/Christmas/logo.webp",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/seasonal/cover/christmas.webp",
+        "catalogSources": [
+          {
+            "type": "movie",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.190143"
+          },
+          {
+            "type": "movie",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.190147"
+          }
+        ],
+        "focusGifEnabled": false,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/seasonal/backdrop/christmas.webp"
+      },
+      {
+        "id": "folder-971daa93",
+        "title": "‎",
+        "sources": [
+          {
+            "type": "movie",
+            "genre": "",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.190146"
+          },
+          {
+            "type": "movie",
+            "genre": "",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.190152"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "https://kao-xt.com/Holiday%20Specials/Valentine's/logo.webp",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/seasonal/cover/valentines.webp",
+        "catalogSources": [
+          {
+            "type": "movie",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.190146"
+          },
+          {
+            "type": "movie",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.190152"
+          }
+        ],
+        "focusGifEnabled": false,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/seasonal/backdrop/valentines.webp"
+      },
+      {
+        "id": "folder-e75a9e00",
+        "title": "‎",
+        "sources": [
+          {
+            "type": "movie",
+            "genre": "",
+            "addonId": "aio-metadata",
+            "provider": "addon",
+            "catalogId": "mdblist.190145"
+          }
+        ],
+        "hideTitle": true,
+        "tileShape": "LANDSCAPE",
+        "coverEmoji": "",
+        "focusGifUrl": "",
+        "heroVideoUrl": "",
+        "titleLogoUrl": "https://kao-xt.com/Holiday%20Specials/Halloween/logo.webp",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/seasonal/cover/halloween.webp",
+        "catalogSources": [
+          {
+            "type": "movie",
+            "addonId": "aio-metadata",
+            "catalogId": "mdblist.190145"
+          }
+        ],
+        "focusGifEnabled": false,
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/seasonal/backdrop/halloween.webp"
+      }
+    ],
+    "pinToTop": true,
+    "viewMode": "FOLLOW_LAYOUT",
+    "showAllTab": false,
+    "backdropImageUrl": "",
+    "focusGlowEnabled": true
+  }
+]

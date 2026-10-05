@@ -1,0 +1,1795 @@
+{
+  "version": "3.1.0",
+  "exportedAt": "2026-09-25T04:38:48.599Z",
+  "config": {
+    "addonName": "AIOMeta Viren SKZ",
+    "ageRating": "None",
+    "apiKeys": {
+      "addonVersion": "1.1.0",
+      "fanart": "",
+      "gemini": "",
+      "mdblist": "",
+      "publicmetadb": "",
+      "rpdb": "",
+      "tmdb": "",
+      "topPoster": "",
+      "tvdb": "",
+      "customDescriptionBlurb": ""
+    },
+    "artProviders": {
+      "anime": {
+        "background": "imdb",
+        "logo": "imdb",
+        "poster": "imdb"
+      },
+      "englishArtOnly": false,
+      "movie": {
+        "background": "tmdb",
+        "logo": "tmdb",
+        "poster": "tmdb"
+      },
+      "series": {
+        "background": "tvdb",
+        "logo": "tvdb",
+        "poster": "tvdb"
+      }
+    },
+    "blurThumbs": false,
+    "castCount": 5,
+    "catalogSetupComplete": true,
+    "catalogs": [
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.189874",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 157,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/trending-movies"
+        },
+        "name": "Trending Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.189876",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 200,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/vladskz/trending-tv-shows"
+        },
+        "name": "Trending TV Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "movie",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.139113",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 313,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/latest-movies-releases"
+        },
+        "name": "💥​ Latest Movies Releases",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "series",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.139114",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 176,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/vladskz/latest-tv-shows"
+        },
+        "name": "💥​ Latest TV Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "tmdb.top",
+        "name": "TMDB Popular",
+        "showInHome": false,
+        "source": "tmdb",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "tmdb.top",
+        "name": "TMDB Popular",
+        "showInHome": false,
+        "source": "tmdb",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "tmdb.trending",
+        "name": "TMDB Trending",
+        "showInHome": false,
+        "source": "tmdb",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "tmdb.trending",
+        "name": "TMDB Trending",
+        "showInHome": false,
+        "source": "tmdb",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "tmdb.year",
+        "name": "TMDB By Year",
+        "showInHome": false,
+        "source": "tmdb",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "tmdb.year",
+        "name": "TMDB By Year",
+        "showInHome": false,
+        "source": "tmdb",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "tmdb.language",
+        "name": "TMDB By Language",
+        "showInHome": false,
+        "source": "tmdb",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "tmdb.language",
+        "name": "TMDB By Language",
+        "showInHome": false,
+        "source": "tmdb",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "tvdb.trending",
+        "name": "TVDB Trending",
+        "showInHome": false,
+        "source": "tvdb",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "tvdb.trending",
+        "name": "TVDB Trending",
+        "showInHome": false,
+        "source": "tvdb",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "tvdb.genres",
+        "name": "TVDB Genres",
+        "showInHome": false,
+        "source": "tvdb",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "tvdb.genres",
+        "name": "TVDB Genres",
+        "showInHome": false,
+        "source": "tvdb",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "tvdb.collections",
+        "name": "TVDB Collections",
+        "showInHome": false,
+        "source": "tvdb",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "mal.airing",
+        "name": "MAL Airing Now",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.upcoming",
+        "name": "MAL Upcoming Season",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.schedule",
+        "name": "MAL Airing Schedule",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.seasons",
+        "name": "MAL Seasons",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.80sDecade",
+        "name": "MAL Best of 80s",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.90sDecade",
+        "name": "MAL Best of 90s",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.00sDecade",
+        "name": "MAL Best of 2000s",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.10sDecade",
+        "name": "MAL Best of 2010s",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.20sDecade",
+        "name": "MAL Best of 2020s",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.genres",
+        "name": "MAL Genres",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.studios",
+        "name": "MAL By Studio",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.top_movies",
+        "name": "MAL Top Movies",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.top_series",
+        "name": "MAL Top Series",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.most_favorites",
+        "name": "MAL Most Favorites",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.most_popular",
+        "name": "MAL Most Popular",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "mal.top_anime",
+        "name": "MAL Top Anime",
+        "showInHome": false,
+        "source": "mal",
+        "type": "anime"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.nfx",
+        "name": "Netflix (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.nfx",
+        "name": "Netflix (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.nfk",
+        "name": "Netflix Kids (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.nfk",
+        "name": "Netflix Kids (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.hbm",
+        "name": "HBO Max (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.hbm",
+        "name": "HBO Max (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.dnp",
+        "name": "Disney+ (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.dnp",
+        "name": "Disney+ (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.amp",
+        "name": "Prime Video (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.amp",
+        "name": "Prime Video (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.atp",
+        "name": "Apple TV+ (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.atp",
+        "name": "Apple TV+ (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.pmp",
+        "name": "Paramount+ (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.pmp",
+        "name": "Paramount+ (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.pcp",
+        "name": "Peacock Premium (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.pcp",
+        "name": "Peacock Premium (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.hlu",
+        "name": "Hulu (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.hlu",
+        "name": "Hulu (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.cts",
+        "name": "Curiosity Stream (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.cts",
+        "name": "Curiosity Stream (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.mgl",
+        "name": "MagellanTV (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.mgl",
+        "name": "MagellanTV (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.cru",
+        "name": "Crunchyroll (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.cru",
+        "name": "Crunchyroll (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.hay",
+        "name": "Hayu (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.hay",
+        "name": "Hayu (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.clv",
+        "name": "Clarovideo (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.clv",
+        "name": "Clarovideo (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.gop",
+        "name": "Globoplay (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.gop",
+        "name": "Globoplay (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.hst",
+        "name": "Hotstar (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.hst",
+        "name": "Hotstar (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.zee",
+        "name": "Zee5 (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.zee",
+        "name": "Zee5 (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.nlz",
+        "name": "NLZIET (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.nlz",
+        "name": "NLZIET (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.vil",
+        "name": "Videoland (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.vil",
+        "name": "Videoland (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.sst",
+        "name": "SkyShowtime (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.sst",
+        "name": "SkyShowtime (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.blv",
+        "name": "BluTV (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.blv",
+        "name": "BluTV (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.cpd",
+        "name": "Canal+ (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.cpd",
+        "name": "Canal+ (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.dpe",
+        "name": "Discovery+ (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.dpe",
+        "name": "Discovery+ (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.bet",
+        "name": "Bet+ (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.bet",
+        "name": "Bet+ (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.mub",
+        "name": "MUBI (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.mub",
+        "name": "MUBI (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.sta",
+        "name": "Starz (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.sta",
+        "name": "Starz (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "tmdb.top_rated",
+        "name": "TMDB Top Rated",
+        "showInHome": false,
+        "source": "tmdb",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "tmdb.top_rated",
+        "name": "TMDB Top Rated",
+        "showInHome": false,
+        "source": "tmdb",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "tmdb.airing_today",
+        "name": "TMDB Airing Today",
+        "showInHome": false,
+        "source": "tmdb",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "tvdb.collections",
+        "name": "TVDB Collections",
+        "showInHome": false,
+        "source": "tvdb",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "tvmaze.schedule",
+        "name": "TVmaze Daily Schedule",
+        "showInHome": false,
+        "source": "tvmaze",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.slv",
+        "name": "Sony Liv (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.slv",
+        "name": "Sony Liv (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.sky",
+        "name": "Sky Go (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.sky",
+        "name": "Sky Go (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.wow",
+        "name": "WOW (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.wow",
+        "name": "WOW (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.crv",
+        "name": "Crave (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.crv",
+        "name": "Crave (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.crc",
+        "name": "Criterion Channel (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.crc",
+        "name": "Criterion Channel (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.hid",
+        "name": "HIDIVE (Movies)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "movie"
+      },
+      {
+        "enabled": false,
+        "id": "streaming.hid",
+        "name": "HIDIVE (Series)",
+        "showInHome": false,
+        "source": "streaming",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "series",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.148474",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 230,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/vladskz/netflix-shows"
+        },
+        "name": "​​🔴 Netflix Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "movie",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.148472",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 200,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/netflix-movies"
+        },
+        "name": "​​🔴 Netflix Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "series",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.152781",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 10,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/vladskz/top-10-netflix-shows-romania"
+        },
+        "name": "🔴🇷🇴​ Top 10 Netflix Shows Romania",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "movie",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.152780",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 10,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/top-10-netflix-romania"
+        },
+        "name": "🔴🇷🇴​ Top 10 Netflix Movies Romania",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "series",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.148469",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 57,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/vladskz/amazon-prime-shows"
+        },
+        "name": "🔷 Amazon Prime Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "movie",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.148466",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 83,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/amazon-prime-movies"
+        },
+        "name": "🔷 Amazon Prime Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "series",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.152784",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 10,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/vladskz/top-10-amazon-shows-romania"
+        },
+        "name": "🔷🇷🇴​​ Top 10 Amazon Shows Romania",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "movie",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.152783",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 10,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/top-10-amazon-movies-romania"
+        },
+        "name": "🔷🇷🇴​​ Top 10 Amazon Movies Romania",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "series",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.148470",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 194,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/vladskz/disney-showa"
+        },
+        "name": "🔵​ Disney+ Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "movie",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.148468",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 66,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/disney-movies"
+        },
+        "name": "🔵​ Disney+ Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "series",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.163338",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 9,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/vladskz/top-10-disney-shows-romania"
+        },
+        "name": "🔵🇷🇴 Top 10 Disney+ Shows Romania",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "movie",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.163336",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 10,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/top-10-disney-movies-romania"
+        },
+        "name": "🔵🇷🇴 Top 10 Disney+ Movies Romania",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "series",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.152786",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 10,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/vladskz/top-10-hbo-shows-romania"
+        },
+        "name": "🩶🇷🇴 Top 10 HBO Shows Romania",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "movie",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.152785",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 10,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/top-10-hbo-movies-romania"
+        },
+        "name": "🩶🇷🇴 Top 10 HBO Movies Romania",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "series",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.158014",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 10,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/vladskz/top-10-skyshowtime-shows-romania"
+        },
+        "name": "🟣🇷🇴 Top 10 SkyShowtime Shows Romania",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "movie",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.158013",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 10,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/top-10-skyshowtime-movies-romania"
+        },
+        "name": "🟣🇷🇴 Top 10 SkyShowtime Movies Romania",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "series",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.75084",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 38,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/vladskz/apple-tv-shows"
+        },
+        "name": "🍏 Apple TV + Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "movie",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.75085",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 19,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/apple-tv-movies"
+        },
+        "name": "🍏 Apple TV + Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "series",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.88469",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 200,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/snoak/trending-anime-shows"
+        },
+        "name": "🔰​🇯🇵​ Trending Anime Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "displayType": "movie",
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.88468",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 200,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/snoak/trending-anime-movies"
+        },
+        "name": "🔰​🇯🇵​ Trending Anime Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.91211",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/snoak/action-movies"
+        },
+        "name": "Popular Action Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.91213",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/snoak/action-shows"
+        },
+        "name": "Popular Action Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.91215",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/snoak/horror-movies"
+        },
+        "name": "Popular Horror Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.91217",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 453,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/snoak/horror-shows"
+        },
+        "name": "Popular Horror Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.91223",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/snoak/comedy-movies"
+        },
+        "name": "Popular Comedy Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.91224",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/snoak/comedy-shows"
+        },
+        "name": "Popular Comedy Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.128040",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/snoak/latest-comedy-movies"
+        },
+        "name": "Latest Comedy Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.128041",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/snoak/latest-comedy-shows"
+        },
+        "name": "Latest Comedy Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.91296",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/snoak/drama-movies"
+        },
+        "name": "Popular Drama Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.91297",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/snoak/drama-shows"
+        },
+        "name": "Popular Drama Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.167314",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/snoak/popular-crime-shows"
+        },
+        "name": "Popular Crime Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.167312",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/snoak/popular-crime-movies"
+        },
+        "name": "Popular Crime Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.91893",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/snoak/thriller-movies"
+        },
+        "name": "Popular Thriller Movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.91894",
+        "metadata": {
+          "author": "snoak",
+          "itemCount": 500,
+          "mediatype": "show",
+          "url": "https://mdblist.com/lists/snoak/thriller-shows"
+        },
+        "name": "Popular Thriller Shows",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "series"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.190143",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 273,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/seasonal-christmas"
+        },
+        "name": "Seasonal Christmas",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.190145",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 245,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/seasonal-halloween"
+        },
+        "name": "Seasonal Halloween",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.190146",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 170,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/seasonal-valentines"
+        },
+        "name": "Seasonal Valentine's",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.190147",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 537,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/trending-hallmark-christmas"
+        },
+        "name": "Trending Hallmark Christmas",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "cacheTTL": 86400,
+        "enableRatingPosters": true,
+        "enabled": true,
+        "genreSelection": "standard",
+        "id": "mdblist.190152",
+        "metadata": {
+          "author": "vladskz",
+          "itemCount": 1063,
+          "mediatype": "movie",
+          "url": "https://mdblist.com/lists/vladskz/romance-hallmark-movies"
+        },
+        "name": "Romance Hallmark movies",
+        "order": "asc",
+        "showInHome": false,
+        "sort": "default",
+        "source": "mdblist",
+        "type": "movie"
+      },
+      {
+        "id": "mdblist.214653",
+        "type": "series",
+        "name": "🍏Top 10 Apple TV Shows Romania",
+        "enabled": true,
+        "showInHome": false,
+        "source": "mdblist",
+        "sort": "default",
+        "order": "asc",
+        "genreSelection": "standard",
+        "enableRatingPosters": true,
+        "metadata": {
+          "itemCount": 10,
+          "author": "vladskz",
+          "url": "https://mdblist.com/lists/vladskz/top-10-apple-tv-shows-romania",
+          "mediatype": "show"
+        },
+        "displayType": "series"
+      },
+      {
+        "id": "mdblist.214654",
+        "type": "movie",
+        "name": "🍏Top 10 Apple TV Movies Romania",
+        "enabled": true,
+        "showInHome": false,
+        "source": "mdblist",
+        "sort": "default",
+        "order": "asc",
+        "genreSelection": "standard",
+        "enableRatingPosters": true,
+        "metadata": {
+          "itemCount": 10,
+          "author": "vladskz",
+          "url": "https://mdblist.com/lists/vladskz/top-10-apple-tv-movies-romania",
+          "mediatype": "movie"
+        },
+        "displayType": "movie"
+      }
+    ],
+    "configHash": "1d010165ab6c6b9c",
+    "configVersion": 1789991155571,
+    "customBackgroundUrlPattern": "",
+    "customLogoUrlPattern": "",
+    "customPosterUrlPattern": "https://btttr.cc/poster-n/imdb/poster-default/{imdb_id}.jpg",
+    "customThumbnailUrlPattern": "",
+    "displayAgeRating": false,
+    "hideUnreleasedDigital": true,
+    "includeAdult": true,
+    "language": "en-US",
+    "lastModified": 1789991155570,
+    "mal": {
+      "allowEpisodeMarking": false,
+      "skipFiller": false,
+      "skipRecap": false,
+      "useImdbIdForCatalogAndSearch": false
+    },
+    "mdblistWatchTracking": false,
+    "posterRatingProvider": "custom",
+    "providers": {
+      "anime": "kitsu",
+      "anime_id_provider": "imdb",
+      "forceAnimeForDetectedImdb": false,
+      "movie": "tmdb",
+      "series": "tvdb"
+    },
+    "search": {
+      "ai_enabled": false,
+      "ai_model": "gemini-2.5-flash-lite",
+      "ai_provider": "gemini",
+      "enabled": true,
+      "engineEnabled": {
+        "gemini.search": false,
+        "kitsu.search.movie": false,
+        "kitsu.search.series": false,
+        "mal.search.movie": false,
+        "mal.search.series": false,
+        "people_search_movie": false,
+        "people_search_series": false,
+        "tmdb.search": true,
+        "tvdb.collections.search": false,
+        "tvdb.search": true,
+        "tvmaze.search": true
+      },
+      "providers": {
+        "anime_movie": "kitsu.search.movie",
+        "anime_series": "kitsu.search.series",
+        "movie": "tmdb.search",
+        "series": "tvdb.search"
+      },
+      "searchOrder": [
+        "gemini.search",
+        "movie",
+        "series",
+        "people_search_movie",
+        "people_search_series",
+        "tvdb.collections.search",
+        "anime_series",
+        "anime_movie"
+      ]
+    },
+    "searchEnabled": true,
+    "sessionId": "",
+    "sfw": false,
+    "showDisabledCatalogs": true,
+    "showMetaProviderAttribution": false,
+    "showPrefix": false,
+    "streaming": [],
+    "timezone": "Europe/Warsaw",
+    "tmdb": {
+      "scrapeImdb": false
+    },
+    "traktWatchTracking": false,
+    "tvdbSeasonType": "official",
+    "usePosterProxy": true,
+    "managerAccounts": [
+      {
+        "id": "cf00eead-6655-494b-be67-5f44a35c33c5",
+        "managerId": "aiomanager",
+        "label": "skz",
+        "instanceUrl": "https://aiomanager-beta.stremio.ru",
+        "keyId": "",
+        "profileTags": [],
+        "autoSync": true
+      }
+    ]
+  },
+  "metadata": {
+    "apiKeysExcluded": false,
+    "totalCatalogs": 143,
+    "enabledCatalogs": 45
+  }
+}
