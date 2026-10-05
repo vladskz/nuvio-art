@@ -113,6 +113,7 @@ Examples:
 import argparse
 import concurrent.futures
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -129,6 +130,7 @@ DEFAULT_COLLECTIONS_FILE = REPO_ROOT / "templates" / "Nuvio-Collections.json"
 DEFAULT_CATALOGS_FILE = REPO_ROOT / "templates" / "AIOMetadata.json"
 DEFAULT_OUTPUT_ROOT = SCRIPT_DIR.parent
 DEFAULT_COVER_ROOT = SCRIPT_DIR.parent
+CHILD_ENV = {**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"}
 PRINT_LOCK = threading.Lock()
 ANSI_RESET = "\033[0m"
 ANSI_GREEN = "\033[32m"
@@ -267,6 +269,11 @@ def slugify(value):
     return value or "folder"
 
 
+def clean_text(value):
+    """Strip zero-width and other invisible characters from a label."""
+    return re.sub(r"[\u200b-\u200f\u202a-\u202e\u2060\ufeff]", "", (value or "")).strip()
+
+
 def resolve_group(collection):
     """Derive the output group slug from a parent collection."""
     title = collection.get("title") or ""
@@ -354,21 +361,6 @@ def find_cover_path(cover_root, group, slug):
     return candidates[0] if candidates else None
 
 
-def find_logo_path(cover_root, group, slug):
-    """Find the clear logo for a folder, preferring the monochrome variant."""
-    logo_dir = Path(cover_root) / group / "logo"
-    if not logo_dir.exists():
-        return None
-    plain = logo_dir / f"{slug}.png"
-    if plain.exists():
-        return plain
-    color = logo_dir / f"{slug}-color.png"
-    if color.exists():
-        return color
-    candidates = sorted(logo_dir.glob(f"{slug}.*")) or sorted(logo_dir.glob(f"{slug}-color.*"))
-    return candidates[0] if candidates else None
-
-
 def should_process(folder_id, allowed_ids):
     if not allowed_ids:
         return True
@@ -422,15 +414,15 @@ def build_jobs(collections_data, catalog_index, output_root, cover_root, allowed
 
             slug = resolve_slug(folder)
             output_path = Path(output_root) / group / "backdrop" / f"{slug}.jpg"
+            label = clean_text(folder.get("title") or "") or slug.replace("-", " ").title()
             jobs.append({
                 "folder_id": folder_id,
                 "group": group,
                 "slug": slug,
-                "label": folder["title"],
+                "label": label,
                 "output_path": output_path,
                 "expected_outputs": resolve_outputs(output=output_path, size=size),
                 "cover_path": find_cover_path(cover_root, group, slug),
-                "logo_path": find_logo_path(cover_root, group, slug),
                 "requests": folder_requests(folder, catalog_index),
             })
     return jobs
@@ -463,6 +455,7 @@ def run_accent(job):
         text=True,
         capture_output=True,
         check=False,
+        env=CHILD_ENV,
     )
     if result.returncode != 0:
         raise RuntimeError((result.stdout + result.stderr).strip() or f"accent.py exited with {result.returncode}")
@@ -498,8 +491,6 @@ def run_job(job, api_key, fanart_key, mdblist_key, preferred_language, focus_x, 
         command.extend(["--preferred-language", preferred_language])
     if quality is not None:
         command.extend(["--quality", str(quality)])
-    if job.get("logo_path"):
-        command.extend(["--logo", str(job["logo_path"])])
     for request in job["requests"]:
         command.extend(["--tmdb-request", request])
 
@@ -510,6 +501,7 @@ def run_job(job, api_key, fanart_key, mdblist_key, preferred_language, focus_x, 
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
         bufsize=1,
+        env=CHILD_ENV,
     )
     output_lines = []
     assert process.stdout is not None
@@ -544,8 +536,7 @@ def print_job_preview(job):
         job,
         f"Queued -> {job['output_path']} "
         f"({len(job['requests'])} request{'s' if len(job['requests']) != 1 else ''}, "
-        f"cover={job['cover_path'] or 'fallback-label'}, "
-        f"logo={job['logo_path'] or 'none'})",
+        f"cover={job['cover_path'] or 'fallback-label'})",
     )
 
 

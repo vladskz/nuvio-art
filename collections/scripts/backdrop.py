@@ -234,14 +234,18 @@ def fetch_mdblist_titles(spec, tmdb_api_key, mdblist_key):
         return items
 
     if isinstance(data, dict):
-        data = data.get("items") or data.get("results") or data.get("data") or []
+        if "movies" in data or "shows" in data:
+            data = (data.get("movies") or []) + (data.get("shows") or [])
+        else:
+            data = data.get("items") or data.get("results") or data.get("data") or []
 
     for entry in data or []:
-        tmdb_id = entry.get("tmdb_id") or entry.get("tmdbid") or entry.get("tmdbId")
+        ids = entry.get("ids") or {}
+        tmdb_id = ids.get("tmdb") or entry.get("id")
         if not tmdb_id:
             continue
-        kind = str(entry.get("type") or "").lower()
-        kind = "tv" if kind in ("tv", "show", "series", "tv_show") else "movie"
+        mediatype = str(entry.get("mediatype") or entry.get("type") or "").lower()
+        kind = "tv" if mediatype in ("tv", "show", "series", "tv_show") else "movie"
         try:
             detail = tmdb_get(f"/{kind}/{tmdb_id}", {}, tmdb_api_key)
         except Exception:
@@ -897,13 +901,13 @@ def backdrops(
         image, source = fetch_tile_image(media_type, item, api_key, fanart_key, preferred_language)
         if not image:
             continue
-        logo = fetch_tmdb_logo(media_type, item["id"], api_key)
-        if logo is None:
+        tile_logo = fetch_tmdb_logo(media_type, item["id"], api_key)
+        if tile_logo is None:
             log(f"    skipping {title}: no clear logo available")
             continue
         tile_images.append(image)
         tile_titles.append(title)
-        tile_logos.append(logo)
+        tile_logos.append(tile_logo)
         if source == "fanart":
             fanart_hits += 1
         elif source == "fanart_other_language":
