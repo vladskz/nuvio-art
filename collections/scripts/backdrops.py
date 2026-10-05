@@ -167,8 +167,7 @@ def print_locked(message="", end="\n", flush=True, color=None):
 
 def job_log_prefix(job):
     """Return a compact stable prefix for log lines emitted by one folder job."""
-    group, slug = parse_folder_key(job["folder_id"])
-    return f"[{group}/{slug}]"
+    return f"[{job['group']}/{job['slug']}]"
 
 
 def job_color(job):
@@ -244,6 +243,56 @@ def parse_folder_key(folder_id):
     return parts[1], parts[2]
 
 
+GROUP_OVERRIDES = {
+    # Parent collection title -> output group slug.
+    "Seasonal Specials": "seasonal",
+}
+
+FOLDER_SLUG_OVERRIDES = {
+    # Folder ids that are UUIDs (or misleading) -> output slug.
+    "folder-284672f5": "trending-tv",
+    "folder-5a84d4bb": "latest",
+    "folder-a56a7950": "latest-tv",
+    "folder-beb798a7": "drama",
+    "e8c403b2-88fb-4886-a3a8-24e4f2263d07": "thriller",
+    "folder-a6edbf45": "christmas",
+    "folder-971daa93": "valentines",
+    "folder-e75a9e00": "halloween",
+    "collections.streaming.peacock": "sky-showtime",
+}
+
+
+def slugify(value):
+    value = re.sub(r"[^a-z0-9]+", "-", (value or "").strip().lower()).strip("-")
+    return value or "folder"
+
+
+def resolve_group(collection):
+    """Derive the output group slug from a parent collection."""
+    title = collection.get("title") or ""
+    if title in GROUP_OVERRIDES:
+        return GROUP_OVERRIDES[title]
+    cid = collection.get("id") or ""
+    if cid.startswith("collections."):
+        return cid.split(".")[1]
+    return slugify(title or cid)
+
+
+def resolve_slug(folder):
+    """Derive a stable output slug for a folder."""
+    folder_id = folder.get("id") or ""
+    if folder_id in FOLDER_SLUG_OVERRIDES:
+        return FOLDER_SLUG_OVERRIDES[folder_id]
+    if folder_id.startswith("collections."):
+        parts = folder_id.split(".")
+        if len(parts) >= 3:
+            return parts[2]
+    slug = slugify(folder.get("title") or "")
+    if slug and slug != "folder":
+        return slug
+    return slugify(folder_id)
+
+
 def stringify_discover_request(media_type, params):
     """Convert the discover JSON params into the request format expected by backdrop.py."""
     filtered = {}
@@ -257,8 +306,8 @@ def stringify_discover_request(media_type, params):
     return f"{media_type}:{urlencode(filtered, doseq=True)}"
 
 
-def folder_tmdb_requests(folder, catalog_index):
-    """Resolve every TMDB-backed source attached to a folder into request specs."""
+def folder_requests(folder, catalog_index):
+    """Resolve every source attached to a folder into backdrop request specs."""
     override = FOLDER_REQUEST_OVERRIDES.get(folder["id"])
     if override:
         return list(override)
@@ -268,13 +317,20 @@ def folder_tmdb_requests(folder, catalog_index):
         if source.get("addonId") != "aio-metadata":
             continue
 
-        catalog = catalog_index.get((source["catalogId"], source.get("type")))
+        catalog_id = str(source.get("catalogId", ""))
+        if catalog_id.startswith("mdblist."):
+            list_id = catalog_id.split(".", 1)[1]
+            media_type = "tv" if source.get("type") == "series" else "movie"
+            requests.append(f"mdblist:{list_id}:{media_type}")
+            continue
+
+        catalog = catalog_index.get((catalog_id, source.get("type")))
         if not catalog:
             # Some AIOMetadata builds name genre catalogs with a `.popular`
             # segment (e.g. tmdb.discover.movie.genres.popular.action) while the
             # mapping file uses the plain name. Fall back to the plain name.
-            normalized_id = source["catalogId"].replace(".popular", "")
-            if normalized_id != source["catalogId"]:
+            normalized_id = catalog_id.replace(".popular", "")
+            if normalized_id != catalog_id:
                 catalog = catalog_index.get((normalized_id, source.get("type")))
         if not catalog or catalog.get("source") != "tmdb":
             continue
@@ -295,6 +351,21 @@ def folder_tmdb_requests(folder, catalog_index):
 def find_cover_path(cover_root, group, slug):
     """Find the cover image for a folder using the repo's existing layout."""
     candidates = sorted((Path(cover_root) / group / "cover").glob(f"{slug}.*"))
+    return candidates[0] if candidates else None
+
+
+def find_logo_path(cover_root, group, slug):
+    """Find the clear logo for a folder, preferring the monochrome variant."""
+    logo_dir = Path(cover_root) / group / "logo"
+    if not logo_dir.exists():
+        return None
+    plain = logo_dir / f"{slug}.png"
+    if plain.exists():
+        return plain
+    color = logo_dir / f"{slug}-color.png"
+    if color.exists():
+        return color
+    candidates = sorted(logo_dir.glob(f"{slug}.*")) or sorted(logo_dir.glob(f"{slug}-color.*"))
     return candidates[0] if candidates else None
 
 
@@ -343,20 +414,24 @@ def build_jobs(collections_data, catalog_index, output_root, cover_root, allowed
     """Precompute all folder jobs before generation starts."""
     jobs = []
     for collection in collections_data:
+        group = resolve_group(collection)
         for folder in collection.get("folders", []):
             folder_id = folder["id"]
             if not should_process(folder_id, allowed_ids):
                 continue
 
-            group, slug = parse_folder_key(folder_id)
+            slug = resolve_slug(folder)
             output_path = Path(output_root) / group / "backdrop" / f"{slug}.jpg"
             jobs.append({
                 "folder_id": folder_id,
+                "group": group,
+                "slug": slug,
                 "label": folder["title"],
                 "output_path": output_path,
                 "expected_outputs": resolve_outputs(output=output_path, size=size),
                 "cover_path": find_cover_path(cover_root, group, slug),
-                "requests": folder_tmdb_requests(folder, catalog_index),
+                "logo_path": find_logo_path(cover_root, group, slug),
+                "requests": folder_requests(folder, catalog_index),
             })
     return jobs
 
@@ -373,7 +448,7 @@ def missing_output_sizes(job):
 def run_accent(job):
     """Call accent.py to derive the accent for one folder from its cover image."""
     command = [
-        "python3",
+        sys.executable,
         "-B",
         str(SCRIPT_DIR / "accent.py"),
         "--fallback-label", job["label"],
@@ -398,11 +473,11 @@ def run_accent(job):
     return tuple(int(part) for part in parts)
 
 
-def run_job(job, api_key, fanart_key, preferred_language, focus_x, focus_y, count, size, profile, quality, stream_output):
+def run_job(job, api_key, fanart_key, mdblist_key, preferred_language, focus_x, focus_y, count, size, profile, quality, stream_output):
     """Run one folder job and optionally stream child output while still capturing it."""
     accent = run_accent(job)
     command = [
-        "python3",
+        sys.executable,
         "-u",
         "-B",
         str(SCRIPT_DIR / "backdrop.py"),
@@ -417,10 +492,14 @@ def run_job(job, api_key, fanart_key, preferred_language, focus_x, focus_y, coun
     ]
     if fanart_key:
         command.extend(["--fanart-key", fanart_key])
+    if mdblist_key:
+        command.extend(["--mdblist-key", mdblist_key])
     if preferred_language:
         command.extend(["--preferred-language", preferred_language])
     if quality is not None:
         command.extend(["--quality", str(quality)])
+    if job.get("logo_path"):
+        command.extend(["--logo", str(job["logo_path"])])
     for request in job["requests"]:
         command.extend(["--tmdb-request", request])
 
@@ -465,7 +544,8 @@ def print_job_preview(job):
         job,
         f"Queued -> {job['output_path']} "
         f"({len(job['requests'])} request{'s' if len(job['requests']) != 1 else ''}, "
-        f"cover={job['cover_path'] or 'fallback-label'})",
+        f"cover={job['cover_path'] or 'fallback-label'}, "
+        f"logo={job['logo_path'] or 'none'})",
     )
 
 
@@ -473,6 +553,7 @@ def main():
     parser = argparse.ArgumentParser(description="Generate collection backdrops from collection and TMDB catalog JSON files.")
     parser.add_argument("--api-key", required=False, help="TMDB API key")
     parser.add_argument("--fanart-key", required=False, default=None, help="Fanart.tv API key")
+    parser.add_argument("--mdblist-key", required=False, default=None, help="MDBList API key for mdblist.* catalogs")
     parser.add_argument("--preferred-language", default="en", help="Preferred Fanart artwork language code. Default: en")
     parser.add_argument("--cover-root", default=str(DEFAULT_COVER_ROOT), help="Collections root containing `<group>/cover/<folder>.*` images for runtime accent scanning")
     parser.add_argument("--collections-file", default=str(DEFAULT_COLLECTIONS_FILE), help="Path to Nuvio-Collections.json")
@@ -527,6 +608,9 @@ def main():
             print_job_line(job, "Skipping: no TMDB-backed catalog sources resolved.")
 
     jobs = [job for job in jobs if job["requests"]]
+
+    if any(r.startswith("mdblist:") for job in jobs for r in job["requests"]) and not args.mdblist_key:
+        print_overall_line("Warning: mdblist catalogs were resolved but no --mdblist-key was provided; those folders may produce no tiles.")
 
     if args.missing_only:
         filtered_jobs = []
@@ -588,6 +672,7 @@ def main():
                 job,
                 args.api_key,
                 args.fanart_key,
+                args.mdblist_key,
                 args.preferred_language,
                 focus_x,
                 focus_y,

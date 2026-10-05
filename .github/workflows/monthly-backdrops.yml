@@ -33,10 +33,12 @@ jobs:
           PYTHONDONTWRITEBYTECODE: "1"
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           FANART_API_KEY: ${{ secrets.FANART_API_KEY }}
+          MDBLIST_API_KEY: ${{ secrets.MDBLIST_API_KEY }}
         run: |
           python -B collections/scripts/backdrops.py \
             --api-key "$TMDB_API_KEY" \
             --fanart-key "$FANART_API_KEY" \
+            --mdblist-key "$MDBLIST_API_KEY" \
             --profile compressed \
             --parallelism 3
 

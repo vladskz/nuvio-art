@@ -12,19 +12,17 @@ collections/
 │   ├── backdrop.py          # collage renderer (layout constants live here)
 │   ├── accent.py            # derives an accent color from a cover image
 │   └── purge.py             # invalidates jsDelivr cache after updates
-├── discover/                # 🔭 Discover: popular, trending, top-rated
+├── discover/                # 🔭 Discover: trending, latest
 ├── streaming/               # 🎬 Streaming: netflix, disney-plus, ...
-├── genres/                  # 🎭 Genres: action, animation, ...
-├── themes/                  # 💡 Themes
-├── decades/                 # 📅 Decades
-└── runtime/                 # ⏱️ Runtime buckets
+├── genres/                  # 🎭 Genres: crime, drama, thriller, ...
+└── seasonal/                # 🎄 Seasonal: christmas, valentines, halloween
     └── <group>/
         ├── cover/           # cover images (.jpg / .png)
         ├── focused/         # focus GIFs (.gif)
         ├── backdrop/        # generated backdrops (.jpg + .webp)
         └── logo/            # clear logos
 templates/
-├── Nuvio-Collections.json   # folder definitions (copy of catalogs.json)
+├── Nuvio-Collections.json   # folder definitions (copy of Collection.json)
 └── AIOMetadata.json         # catalog id -> TMDB discover params
 .github/workflows/
 └── monthly-backdrops.yml    # scheduled regeneration
@@ -47,8 +45,10 @@ month** (and on demand) and:
 1. Add your TMDB API key as a repo secret named `TMDB_API_KEY`
    (Settings → Secrets and variables → Actions → New repository secret).
    Get one free at https://www.themoviedb.org/settings/api.
-2. (Optional) Add a Fanart.tv key as `FANART_API_KEY` for better tile art.
-3. Run the workflow once manually:
+2. Add your MDBList API key as a secret named `MDBLIST_API_KEY` (needed to read
+   your `mdblist.*` catalogs). Get it at https://mdblist.com/settings.
+3. (Optional) Add a Fanart.tv key as `FANART_API_KEY` for better tile art.
+4. Run the workflow once manually:
    **Actions → Monthly Backdrops → Run workflow**.
 
 ### Run locally

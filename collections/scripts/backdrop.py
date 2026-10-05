@@ -74,7 +74,7 @@ from pathlib import Path
 from urllib.parse import parse_qsl
 
 import requests
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_OUTPUT_DIR = SCRIPT_DIR / "output"
@@ -82,26 +82,26 @@ TMDB_BASE = "https://api.themoviedb.org/3"
 TMDB_IMG_BASE = "https://image.tmdb.org/t/p"
 BACKDROP_SIZE = "w1280"
 FANART_BASE = "https://webservice.fanart.tv/v3"
+MDBLIST_BASE = "https://api.mdblist.com"
 QUALITY_PRESETS = {
     "compressed": {"quality": 82, "progressive": True, "subsampling": "4:2:0"},
     "high": {"quality": 95, "progressive": False, "subsampling": 0},
 }
 
 # ---------------------------------------------------------------------------
-# Collage layout
+# Collage layout (tilted-overlap)
 # ---------------------------------------------------------------------------
-# Landscape (16:9) tiles arranged in a staggered grid with no rotation.
-# Rows are offset horizontally by STAGGER of one tile step. "Sparse" means
-# larger tiles so fewer are visible on screen. Tweak these values (or pass the
-# matching --tile-width / --tile-height / --tilt-deg / --gap / --stagger /
-# --card-radius flags) to restyle the collage.
-CARD_RADIUS = 12       # corner radius of each tile (px)
-TILT_DEG = 0           # rotation applied to the whole grid (degrees)
-TILE_W = 560           # tile width at scale 1.0 (px)
-TILE_H = 315           # tile height at scale 1.0 (px, 16:9)
-GAP = 16               # gap between tiles (px)
-ROWS = 9               # logical rows in the source grid
-COLS = 9               # logical columns in the source grid
+# Landscape (16:9) tiles arranged in overlapping rows, with the whole grid
+# rotated by TILT_DEG. Tweak these values (or pass the matching --tile-width /
+# --tile-height / --tilt-deg / --gap / --stagger / --card-radius flags) to
+# restyle the collage.
+CARD_RADIUS = 9        # corner radius of each tile (px)
+TILT_DEG = 10          # rotation applied to the whole grid (degrees)
+TILE_W = 372           # tile width at scale 1.0 (px)
+TILE_H = 210           # tile height at scale 1.0 (px, 16:9)
+GAP = 9                # gap between tiles (px)
+ROWS = 10              # logical rows in the source grid
+COLS = 10              # logical columns in the source grid
 STAGGER = 0.5          # horizontal row offset (fraction of tile step)
 FOCUS_X = 0.5          # horizontal focal point (fraction of grid width)
 FOCUS_Y = 0.53         # vertical focal point (fraction of grid height)
@@ -182,16 +182,27 @@ def tmdb_get(endpoint, params, api_key):
 
 
 def parse_request_spec(spec):
-    """Parse a single request spec into either a discover query or a direct TMDB endpoint call."""
+    """Parse a request spec into a TMDB discover/endpoint call or an MDBList list."""
     try:
-        raw_media_type, raw_request = spec.split(":", 1)
+        raw_kind, raw_request = spec.split(":", 1)
     except ValueError as exc:
         raise ValueError(
-            f"Invalid request '{spec}'. Use 'movie:key=value&...' or 'tv:/path?query=...'."
+            f"Invalid request '{spec}'. Use 'movie:key=value&...', 'tv:/path?query=...' or 'mdblist:<id>:<type>'."
         ) from exc
 
-    media_type = normalize_media_type(raw_media_type.strip())
     raw_request = raw_request.strip()
+    if raw_kind.strip() == "mdblist":
+        list_id, _, media_type = raw_request.partition(":")
+        list_id = list_id.strip()
+        if not list_id:
+            raise ValueError(f"Invalid mdblist request '{spec}': missing list id.")
+        return {
+            "mode": "mdblist",
+            "list_id": list_id,
+            "media_type": normalize_media_type(media_type.strip() or "movie"),
+        }
+
+    media_type = normalize_media_type(raw_kind.strip())
     if not raw_request:
         raise ValueError(f"Invalid request '{spec}': missing path or query string.")
 
@@ -206,7 +217,43 @@ def parse_request_spec(spec):
     return {"mode": "discover", "media_type": media_type, "params": params}
 
 
-def fetch_titles_for_spec(spec, api_key, max_pages=3):
+def fetch_mdblist_titles(spec, tmdb_api_key, mdblist_key):
+    """Fetch titles in an MDBList list and resolve them to TMDB items."""
+    if not mdblist_key:
+        return []
+    items = []
+    try:
+        response = requests.get(
+            f"{MDBLIST_BASE}/lists/{spec['list_id']}/items",
+            params={"apikey": mdblist_key},
+            timeout=20,
+        )
+        response.raise_for_status()
+        data = response.json()
+    except Exception:
+        return items
+
+    if isinstance(data, dict):
+        data = data.get("items") or data.get("results") or data.get("data") or []
+
+    for entry in data or []:
+        tmdb_id = entry.get("tmdb_id") or entry.get("tmdbid") or entry.get("tmdbId")
+        if not tmdb_id:
+            continue
+        kind = str(entry.get("type") or "").lower()
+        kind = "tv" if kind in ("tv", "show", "series", "tv_show") else "movie"
+        try:
+            detail = tmdb_get(f"/{kind}/{tmdb_id}", {}, tmdb_api_key)
+        except Exception:
+            continue
+        if detail.get("backdrop_path"):
+            items.append((kind, detail))
+    return items
+
+
+def fetch_titles_for_spec(spec, api_key, max_pages=3, mdblist_key=None):
+    if spec["mode"] == "mdblist":
+        return fetch_mdblist_titles(spec, api_key, mdblist_key)
     items = []
     if spec["mode"] == "discover":
         endpoint = f"/discover/{spec['media_type']}"
@@ -229,10 +276,10 @@ def fetch_titles_for_spec(spec, api_key, max_pages=3):
     return items
 
 
-def fetch_titles(request_specs, api_key, count=60):
+def fetch_titles(request_specs, api_key, count=60, mdblist_key=None):
     # Interleave results from each request so mixed folders (for example movie + TV)
     # do not get visually dominated by the first request in the list.
-    per_spec_items = [fetch_titles_for_spec(spec, api_key) for spec in request_specs]
+    per_spec_items = [fetch_titles_for_spec(spec, api_key, mdblist_key=mdblist_key) for spec in request_specs]
     merged = []
     max_len = max((len(spec_items) for spec_items in per_spec_items), default=0)
     for index in range(max_len):
@@ -426,6 +473,31 @@ def fetch_tile_image(kind, item, api_key, fanart_key, preferred_language):
     return None, "missing"
 
 
+def fetch_tmdb_logo(media_type, tmdb_id, api_key):
+    """Fetch the title's clear logo (transparent PNG) from TMDB, if available."""
+    try:
+        data = tmdb_get(f"/{media_type}/{tmdb_id}/images", {}, api_key)
+    except Exception:
+        return None
+    logos = data.get("logos") or []
+    if not logos:
+        return None
+    english = [logo for logo in logos if (logo.get("iso_639_1") or "").lower() == "en"]
+    pool = english or logos
+    # PIL cannot decode SVG logos; skip them so we fall back to a text title.
+    pool = [logo for logo in pool if not (logo.get("file_path") or "").lower().endswith(".svg")]
+    if not pool:
+        return None
+    best = sorted(
+        pool,
+        key=lambda logo: (-(logo.get("vote_count") or 0), -(logo.get("vote_average") or 0)),
+    )[0]
+    file_path = best.get("file_path")
+    if not file_path:
+        return None
+    return download_image_url(f"{TMDB_IMG_BASE}/w500{file_path}")
+
+
 def rounded_rect_mask(width, height, radius=CARD_RADIUS):
     mask = Image.new("L", (width, height), 0)
     draw = ImageDraw.Draw(mask)
@@ -451,6 +523,89 @@ def make_tile(image, tile_width, tile_height):
     result = Image.new("RGBA", (tile_width, tile_height), (0, 0, 0, 0))
     result.paste(image, mask=mask)
     return result
+
+
+FONT_CANDIDATES = (
+    "C:/Windows/Fonts/arialbd.ttf",
+    "C:/Windows/Fonts/arial.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+    "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+    "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+)
+
+
+def load_title_font(size):
+    for path in FONT_CANDIDATES:
+        try:
+            return ImageFont.truetype(path, size)
+        except Exception:
+            continue
+    try:
+        return ImageFont.load_default(size=size)
+    except TypeError:
+        return ImageFont.load_default()
+
+
+def draw_title_overlay(tile, title):
+    """Draw the movie/show title at the bottom of a tile with a dark backing."""
+    title = (title or "").strip()
+    if not title:
+        return tile
+    width, height = tile.size
+
+    size = max(16, width // 10)
+    font = load_title_font(size)
+    max_text_width = int(width * 0.94)
+    draw = ImageDraw.Draw(tile)
+
+    while size > 16:
+        bbox = draw.textbbox((0, 0), title, font=font)
+        if bbox[2] - bbox[0] <= max_text_width:
+            break
+        size -= 2
+        font = load_title_font(size)
+
+    while True:
+        bbox = draw.textbbox((0, 0), title, font=font)
+        if bbox[2] - bbox[0] <= max_text_width or len(title) <= 4:
+            break
+        title = title[:-2] + "…"
+
+    bbox = draw.textbbox((0, 0), title, font=font)
+    text_height = bbox[3] - bbox[1]
+    pad_x = max(6, int(width * 0.03))
+    pad_y = max(4, int(text_height * 0.35))
+    x = pad_x
+    y = height - text_height - pad_y
+    strip_height = text_height + pad_y * 2
+
+    alpha = tile.getchannel("A")
+    strip = Image.new("RGBA", (width, strip_height), (0, 0, 0, 120))
+    mask = alpha.crop((0, height - strip_height, width, height))
+    tile.paste(strip, (0, height - strip_height), mask)
+
+    draw.text((x, y), title, font=font, fill=(255, 255, 255, 255))
+    return tile
+
+
+def overlay_clear_logo(tile, logo):
+    """Center the title's clear logo over a tile, scaled to fit."""
+    if logo is None:
+        return tile
+    logo = logo.copy()
+    tile_width, tile_height = tile.size
+    max_width = int(tile_width * 0.80)
+    max_height = int(tile_height * 0.55)
+    scale = min(max_width / logo.width, max_height / logo.height)
+    if scale < 1.0:
+        logo = logo.resize(
+            (max(1, int(logo.width * scale)), max(1, int(logo.height * scale))),
+            Image.LANCZOS,
+        )
+    x = (tile_width - logo.width) // 2
+    y = (tile_height - logo.height) // 2
+    tile.alpha_composite(logo, (x, y))
+    return tile
 
 
 def build_tilted_grid(tiles, canvas_width, canvas_height, scale=1.0, focus_x=None, focus_y=None):
@@ -484,7 +639,9 @@ def build_tilted_grid(tiles, canvas_width, canvas_height, scale=1.0, focus_x=Non
             break
         x = row * stagger_px + col * (tile_width + gap)
         y = row * (tile_height + gap)
-        tile = make_tile(tile_list[index], tile_width, tile_height)
+        image, title, logo = tile_list[index]
+        tile = make_tile(image, tile_width, tile_height)
+        tile = overlay_clear_logo(tile, logo)
         grid.paste(tile, (x, y), tile)
 
     rotated = grid.rotate(TILT_DEG, expand=True, resample=Image.BICUBIC)
@@ -507,17 +664,17 @@ def build_tilted_grid(tiles, canvas_width, canvas_height, scale=1.0, focus_x=Non
     return canvas
 
 
-def ensure_minimum_tiles(tile_images, minimum_count):
-    """Repeat available tiles until the minimum count needed for compositing is met."""
-    if len(tile_images) >= minimum_count or not tile_images:
-        return tile_images
+def ensure_minimum_tiles(tiles, minimum_count):
+    """Repeat available (image, title) tiles until the minimum count is met."""
+    if len(tiles) >= minimum_count or not tiles:
+        return tiles
 
-    padded_tiles = list(tile_images)
-    for tile in itertools.cycle(tile_images):
-        if len(padded_tiles) >= minimum_count:
+    padded = list(tiles)
+    for tile in itertools.cycle(tiles):
+        if len(padded) >= minimum_count:
             break
-        padded_tiles.append(tile.copy())
-    return padded_tiles
+        padded.append(tile)
+    return padded
 
 
 def apply_gradient(canvas, accent):
@@ -584,6 +741,40 @@ def apply_gradient(canvas, accent):
     return Image.alpha_composite(result, accent_grad)
 
 
+def composite_logo(canvas, logo_path, max_width_ratio=0.42, y_ratio=0.42):
+    """Overlay a clear logo (transparent PNG) centered on the backdrop."""
+    if not logo_path:
+        return canvas
+    logo_path = Path(logo_path)
+    if not logo_path.exists():
+        return canvas
+
+    logo = Image.open(logo_path).convert("RGBA")
+    bbox = logo.getchannel("A").getbbox()
+    if not bbox:
+        return canvas
+    logo = logo.crop(bbox)
+
+    target_width = int(canvas.width * max_width_ratio)
+    if logo.width > target_width:
+        scale = target_width / logo.width
+        logo = logo.resize((target_width, int(logo.height * scale)), Image.LANCZOS)
+
+    x = (canvas.width - logo.width) // 2
+    y = int(canvas.height * y_ratio) - logo.height // 2
+    y = max(0, min(y, canvas.height - logo.height))
+
+    # Soft drop shadow so the logo stays readable over bright tiles.
+    pad = 12
+    shadow = Image.new("RGBA", (logo.width + pad * 2, logo.height + pad * 2), (0, 0, 0, 0))
+    shadow_alpha = logo.getchannel("A").resize(shadow.size, Image.LANCZOS)
+    shadow.putalpha(shadow_alpha)
+    shadow = shadow.filter(ImageFilter.GaussianBlur(14))
+    canvas.alpha_composite(shadow, (x - pad, y - pad))
+    canvas.alpha_composite(logo, (x, y))
+    return canvas
+
+
 def resolve_quality_settings(profile="compressed", quality=None):
     settings = dict(QUALITY_PRESETS[profile])
     if quality is not None:
@@ -644,6 +835,7 @@ def backdrops(
     label,
     tmdb_requests,
     fanart_key=None,
+    mdblist_key=None,
     accent_color=None,
     output=None,
     output_dir=None,
@@ -654,6 +846,7 @@ def backdrops(
     profile="compressed",
     quality=None,
     preferred_language="en",
+    logo=None,
     logger=None,
 ):
     """Fetch titles for the supplied TMDB requests and render one or more backdrop images."""
@@ -678,14 +871,16 @@ def backdrops(
     log(f"  Profile : {profile} (q={quality_settings['quality']})")
     log(f"{'-' * 50}\n")
 
-    log("Fetching titles from TMDB...")
-    titles = fetch_titles(request_specs, api_key, count=count)
+    log("Fetching titles...")
+    titles = fetch_titles(request_specs, api_key, count=count, mdblist_key=mdblist_key)
     log(f"  Found {len(titles)} titles.\n")
     if not titles:
         raise RuntimeError("No titles found for the supplied TMDB requests.")
 
     log("Downloading tile images...")
     tile_images = []
+    tile_titles = []
+    tile_logos = []
     fanart_hits = 0
     tmdb_fallbacks = 0
     other_language_fanart_hits = 0
@@ -700,14 +895,21 @@ def backdrops(
         else:
             log(progress_line)
         image, source = fetch_tile_image(media_type, item, api_key, fanart_key, preferred_language)
-        if image:
-            tile_images.append(image)
-            if source == "fanart":
-                fanart_hits += 1
-            elif source == "fanart_other_language":
-                other_language_fanart_hits += 1
-            else:
-                tmdb_fallbacks += 1
+        if not image:
+            continue
+        logo = fetch_tmdb_logo(media_type, item["id"], api_key)
+        if logo is None:
+            log(f"    skipping {title}: no clear logo available")
+            continue
+        tile_images.append(image)
+        tile_titles.append(title)
+        tile_logos.append(logo)
+        if source == "fanart":
+            fanart_hits += 1
+        elif source == "fanart_other_language":
+            other_language_fanart_hits += 1
+        else:
+            tmdb_fallbacks += 1
     if show_tty_progress and titles:
         sys.stdout.write("\n")
         sys.stdout.flush()
@@ -722,17 +924,21 @@ def backdrops(
     else:
         log(f"  Downloaded {len(tile_images)} images.\n")
 
+    tile_pairs = list(zip(tile_images, tile_titles, tile_logos))
+    if not tile_pairs:
+        raise RuntimeError("No tiles with clear logos could be downloaded for the supplied TMDB requests.")
     minimum_tiles = 12
-    if len(tile_images) < minimum_tiles:
-        log(f"  Only {len(tile_images)} image(s) available; repeating tiles to reach {minimum_tiles}.\n")
-        tile_images = ensure_minimum_tiles(tile_images, minimum_tiles)
+    if len(tile_pairs) < minimum_tiles:
+        log(f"  Only {len(tile_pairs)} image(s) available; repeating tiles to reach {minimum_tiles}.\n")
+        tile_pairs = ensure_minimum_tiles(tile_pairs, minimum_tiles)
 
     saved_paths = {}
     for output_size, destination in outputs.items():
         width, height, scale = SIZE_PRESETS[output_size]
         log(f"Compositing {output_size} ({width}x{height})...")
-        canvas = build_tilted_grid(tile_images, width, height, scale=scale, focus_x=fx, focus_y=fy)
+        canvas = build_tilted_grid(tile_pairs, width, height, scale=scale, focus_x=fx, focus_y=fy)
         canvas = apply_gradient(canvas, accent)
+        canvas = composite_logo(canvas, logo)
         with contextlib.redirect_stdout(progress_output):
             save_output(canvas, destination, quality_settings=quality_settings)
         for line in progress_output.getvalue().splitlines():
@@ -781,6 +987,7 @@ def main():
     parser = argparse.ArgumentParser(description="Generate collection backdrops from explicit TMDB requests.")
     parser.add_argument("--api-key", required=False, help="TMDB API key (v3)")
     parser.add_argument("--fanart-key", required=False, default=None, help="Fanart.tv API key")
+    parser.add_argument("--mdblist-key", required=False, default=None, help="MDBList API key for mdblist.* catalogs")
     parser.add_argument("--preferred-language", default="en", help="Preferred Fanart artwork language code. Default: en")
     parser.add_argument("--label", required=True, help="Label for logs and fallback accent generation")
     parser.add_argument(
@@ -790,6 +997,7 @@ def main():
         help="TMDB request spec. Repeat this flag to merge multiple catalogs into one backdrop.",
     )
     parser.add_argument("--accent-color", default=None, help="Accent color as '#RRGGBB' or 'R,G,B'")
+    parser.add_argument("--logo", default=None, help="Path to a clear logo PNG to overlay on the backdrop")
     parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR), help="Directory for generated files when --output is not set")
     parser.add_argument("--output", default=None, help="Exact output file path. Use this when another script has already decided the final filename.")
     parser.add_argument("--size", choices=("4k", "1080p", "both"), default="both", help="Which size(s) to render")
@@ -824,6 +1032,7 @@ def main():
             label=args.label,
             tmdb_requests=args.tmdb_request,
             fanart_key=args.fanart_key,
+            mdblist_key=args.mdblist_key,
             accent_color=accent,
             output=args.output,
             output_dir=args.output_dir,
@@ -834,6 +1043,7 @@ def main():
             profile=args.profile,
             quality=args.quality,
             preferred_language=args.preferred_language,
+            logo=args.logo,
         )
     except Exception as exc:
         print(f"Error: {exc}")

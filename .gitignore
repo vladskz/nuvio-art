@@ -6,3 +6,6 @@ desktop.ini
 # Python
 __pycache__/
 *.pyc
+
+# Local layout previews (not committed)
+samples/
