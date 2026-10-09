@@ -1,0 +1,631 @@
+{
+  "uuid": "a85b466f-5616-4510-81b0-38bc4b135ffb",
+  "trusted": false,
+  "showChanges": false,
+  "addonName": "skz",
+  "addonDescription": "AIO fork by VladSkz",
+  "excludedResolutions": [],
+  "includedResolutions": [],
+  "requiredResolutions": [],
+  "preferredResolutions": [
+    "2160p",
+    "1440p",
+    "1080p",
+    "720p",
+    "576p",
+    "480p",
+    "360p",
+    "240p",
+    "144p",
+    "Unknown"
+  ],
+  "excludedQualities": [
+    "CAM",
+    "SCR",
+    "TS",
+    "TC"
+  ],
+  "includedQualities": [],
+  "requiredQualities": [],
+  "preferredQualities": [
+    "BluRay REMUX",
+    "WEB-DL",
+    "BluRay",
+    "WEBRip",
+    "HDTV",
+    "Unknown"
+  ],
+  "excludedLanguages": [
+    "Tamil",
+    "Telugu",
+    "Hindi"
+  ],
+  "includedLanguages": [],
+  "requiredLanguages": [],
+  "preferredLanguages": [],
+  "excludedSubtitles": [],
+  "includedSubtitles": [],
+  "requiredSubtitles": [],
+  "preferredSubtitles": [
+    "Romanian"
+  ],
+  "excludedVisualTags": [
+    "3D"
+  ],
+  "includedVisualTags": [],
+  "requiredVisualTags": [],
+  "preferredVisualTags": [
+    "HDR+DV",
+    "DV Only",
+    "HDR Only",
+    "HDR10+",
+    "HDR10",
+    "DV",
+    "HDR",
+    "HLG",
+    "SDR"
+  ],
+  "excludedAudioTags": [],
+  "includedAudioTags": [],
+  "requiredAudioTags": [],
+  "preferredAudioTags": [],
+  "excludedAudioChannels": [],
+  "includedAudioChannels": [],
+  "requiredAudioChannels": [],
+  "preferredAudioChannels": [],
+  "excludedStreamTypes": [],
+  "includedStreamTypes": [],
+  "requiredStreamTypes": [
+    "debrid",
+    "http",
+    "info"
+  ],
+  "preferredStreamTypes": [],
+  "excludedEncodes": [],
+  "includedEncodes": [],
+  "requiredEncodes": [],
+  "preferredEncodes": [],
+  "preferredRegexPatterns": [],
+  "excludedReleaseGroups": [
+    "YTS",
+    "YTS.MX"
+  ],
+  "requiredReleaseGroups": [
+    "PlayWEB",
+    "playhd",
+    "playbd",
+    "RoSub~ViP3rA©®🪱",
+    "spweb",
+    "F1✰",
+    "tgs",
+    "supply",
+    "Flux",
+    "byndr",
+    "ralf",
+    "DSiTE",
+    "framestor",
+    "ntb",
+    "aoc",
+    "bone",
+    "hone",
+    "BEN.THE.MEN",
+    "btm",
+    "BlackTV",
+    "ethel",
+    "edith",
+    "fgt",
+    "kitsune",
+    "alfahd",
+    "grace",
+    "kyogo",
+    "g66",
+    "zorosenpai",
+    "apex",
+    "VARYG",
+    "CRUCiBLE",
+    "rarbg",
+    "galaxyrg",
+    "GalaxyTV",
+    "EniaHD",
+    "cakes",
+    "ion10",
+    "tepes",
+    "cmrg",
+    "kontrast",
+    "d3g",
+    "lama",
+    "btn",
+    "evo",
+    "psa",
+    "englishsubs",
+    "ctrlhd",
+    "megusta",
+    "mixed",
+    "epsilon",
+    "pirates",
+    "xebec",
+    "don",
+    "kings",
+    "qxr",
+    "Vyndros",
+    "sigma",
+    "rawr",
+    "tgs",
+    "crfw",
+    "family",
+    "oldfamily",
+    "fzhd",
+    "ToonsHub",
+    "Anime Time",
+    "UDF",
+    "UQW",
+    "HorribleSubs",
+    "AnimeRG",
+    "subsplease",
+    "Erai-raws",
+    "doki",
+    "Okay-Subs",
+    "erai raws",
+    "sensei",
+    "YURASUKA",
+    "NAN0",
+    "OZR",
+    "SEV",
+    "tgx",
+    "nexusnf"
+  ],
+  "preferredReleaseGroups": [
+    "PlayWEB",
+    "playhd",
+    "playbd",
+    "RoSub~ViP3rA©®🪱",
+    "spweb",
+    "F1✰",
+    "Flux",
+    "byndr",
+    "ralf",
+    "DSiTE",
+    "framestor",
+    "ntb",
+    "aoc",
+    "bone",
+    "hone",
+    "BEN.THE.MEN",
+    "btm",
+    "BlackTV",
+    "ethel",
+    "edith",
+    "fgt",
+    "kitsune",
+    "alfahd",
+    "grace",
+    "kyogo",
+    "g66",
+    "zorosenpai",
+    "apex",
+    "VARYG",
+    "CRUCiBLE",
+    "rarbg",
+    "galaxyrg",
+    "GalaxyTV",
+    "EniaHD",
+    "cakes",
+    "ion10",
+    "tepes",
+    "cmrg",
+    "kontrast",
+    "d3g",
+    "lama",
+    "btn",
+    "evo",
+    "psa",
+    "englishsubs",
+    "ctrlhd",
+    "megusta",
+    "mixed",
+    "epsilon",
+    "pirates",
+    "xebec",
+    "don",
+    "kings",
+    "qxr",
+    "Vyndros",
+    "sigma",
+    "rawr",
+    "tgs",
+    "crfw",
+    "family",
+    "oldfamily",
+    "fzhd",
+    "ToonsHub",
+    "Anime Time",
+    "UDF",
+    "UQW",
+    "HorribleSubs",
+    "AnimeRG",
+    "subsplease",
+    "Erai-raws",
+    "doki",
+    "Okay-Subs",
+    "erai raws",
+    "sensei",
+    "YURASUKA",
+    "NAN0",
+    "OZR",
+    "SEV",
+    "tgx"
+  ],
+  "excludedKeywords": [
+    "yts.mx"
+  ],
+  "preferredKeywords": [
+    "NF",
+    "DSNP",
+    "ATV",
+    "AMZN",
+    "hmax",
+    "max",
+    "skst"
+  ],
+  "requiredSeederRange": [
+    0,
+    1000
+  ],
+  "seederRangeTypes": [],
+  "ageRangeTypes": [
+    "usenet"
+  ],
+  "digitalReleaseFilter": {
+    "enabled": false,
+    "tolerance": 0,
+    "requestTypes": [],
+    "addons": []
+  },
+  "enableSeadex": true,
+  "excludeCachedFromAddons": [],
+  "excludeCachedFromServices": [],
+  "excludeCachedFromStreamTypes": [],
+  "excludeUncached": true,
+  "excludeUncachedFromAddons": [],
+  "excludeUncachedFromServices": [],
+  "excludeUncachedFromStreamTypes": [],
+  "regexOverrides": [],
+  "sortCriteria": {
+    "global": [
+      {
+        "key": "library",
+        "direction": "desc"
+      },
+      {
+        "key": "visualTag",
+        "direction": "desc"
+      },
+      {
+        "key": "resolution",
+        "direction": "desc"
+      },
+      {
+        "key": "quality",
+        "direction": "desc"
+      },
+      {
+        "key": "subtitle",
+        "direction": "desc"
+      },
+      {
+        "key": "releaseGroup",
+        "direction": "desc"
+      }
+    ],
+    "movies": [],
+    "series": [],
+    "anime": [],
+    "cached": [],
+    "uncached": [],
+    "cachedMovies": [],
+    "uncachedMovies": [],
+    "cachedSeries": [],
+    "uncachedSeries": [],
+    "cachedAnime": [],
+    "uncachedAnime": []
+  },
+  "posterService": "rpdb",
+  "formatter": {
+    "id": "custom",
+    "definitions": {
+      "custom": {
+        "name": "     {stream.library::istrue[\"☁ \"||\"{service.cached[\"⚡ \"||\"⏳ \"||\"\"]}\"]}{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K')::replace('1440p','2K')::replace('1080p','FHD')::replace('720p','HD')}\"||\"?\"]}{stream.quality::exists[\"°{stream.quality::replace('BluRay REMUX','REMUX')::replace('HC HD-Rip','HC HDRIP')::replace('BluRay','BLURAY')::replace('WEB-DL','WEB-DL')::replace('WEBRip','WEBRIP')::replace('DVDRip','DVDRIP')::replace('HDRip','HDRIP')::upper::smallcaps}\"||\"　\"]}{?  {stream.visualTags::sort::join(' ⋅ ')}  ?}{?‍{stream.type::replace('debrid','  ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{stream.nSeScore::exists[\"⌁  {stream.nSeScore::>=80[\"🍿 5/5\"||\"\"]}{stream.nSeScore::>=60::and::stream.nSeScore::<80[\"🍿 4/5\"||\"\"]}{stream.nSeScore::>=40::and::stream.nSeScore::<60[\"🍿 3/5\"||\"\"]}{stream.nSeScore::>=20::and::stream.nSeScore::<40[\"🍿 2/5\"||\"\"]}{stream.nSeScore::>0::and::stream.nSeScore::<20[\"🍿 1/5\"||\"\"]} \"||\"\"]}{stream.seadexBest[\"⁽ᵇᵉˢᵗ⁾\"||\"\"]}{stream.seadex::and::stream.seadexBest::isfalse[\"⁽ᵃˡᵗ⁾\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"　🌱 {stream.seeders}\"||\"\"]}{stream.audioTags::string::replace('DTS-HD MA','⁣‌‌‌‌‍‍‌‍⁤')::replace('DTS-HD','⁣‌‌‌‌‍‍‍‌⁤')::replace('DTS-ES','⁣‌‌‌‌‍‍‍‍⁤')::replace('TrueHD','⁣‌‌‌‍‌‌‌‍⁤')::replace('Atmos','⁣‌‌‌‌‍‌‌‍⁤')::replace('DTS:X','⁣‌‌‌‌‍‍‌‌⁤')::replace('OPUS','⁣‌‌‌‍‌‌‍‌⁤')::replace('FLAC','⁣‌‌‌‍‌‍‌‌⁤')::replace('DD+','⁣‌‌‌‌‍‌‍‌⁤')::replace('DTS','⁣‌‌‌‍‌‌‌‌⁤')::replace('AAC','⁣‌‌‌‍‌‌‍‍⁤')::replace('DD','⁣‌‌‌‌‍‌‍‍⁤')::remove('Unknown',',')}{stream.quality::replace('BluRay REMUX','⁣‌‌‍‌‌‌‍‌⁤')::replace('HC HD-Rip','⁣‌‌‍‌‌‍‍‍⁤')::replace('BluRay','⁣‌‌‍‌‌‌‍‍⁤')::replace('WEB-DL','⁣‌‌‍‌‌‍‌‌⁤')::replace('WEBRip','⁣‌‌‍‌‌‍‌‍⁤')::replace('DVDRip','⁣‌‌‍‌‍‌‌‌⁤')::replace('HDRip','⁣‌‌‍‌‌‍‍‌⁤')::replace('HDTV','⁣‌‌‍‌‍‌‌‍⁤')::replace('SCR','⁣‌‌‍‌‍‌‍‌⁤')::replace('CAM','⁣‌‌‍‌‍‍‌‍⁤')::replace('TC','⁣‌‌‍‌‍‌‍‍⁤')::replace('TS','⁣‌‌‍‌‍‍‌‌⁤')::remove('Unknown')}{stream.visualTags::string::replace('HDR10+','⁣‌‌‌‌‌‌‍‌⁤')::replace('HDR10','⁣‌‌‌‌‌‌‍‍⁤')::replace('10bit','⁣‌‌‌‌‌‍‍‌⁤')::replace('HDR','⁣‌‌‌‌‌‍‌‌⁤')::replace('HLG','⁣‌‌‌‌‌‍‌‍⁤')::replace('SDR','⁣‌‌‌‌‌‍‍‍⁤')::replace('DV','⁣‌‌‌‌‌‌‌‍⁤')::replace('AI','⁣‌‌‌‌‍‌‌‌⁤')::remove('Unknown','H-SBS','IMAX','H-OU','3D',',','Upscaled','Only','+')}{stream.resolution::replace('2160p','⁣‌‌‌‍‍‌‌‍⁤')::replace('1440p','⁣‌‌‌‍‍‌‍‌⁤')::replace('1080p','⁣‌‌‌‍‍‌‍‍⁤')::replace('720p','⁣‌‌‌‍‍‍‌‌⁤')::replace('576p','⁣‌‌‌‍‍‍‌‍⁤')::replace('480p','⁣‌‌‌‍‍‍‍‌⁤')::replace('360p','⁣‌‌‌‍‍‍‍‍⁤')::replace('240p','⁣‌‌‍‌‌‌‌‌⁤')::replace('144p','⁣‌‌‍‌‌‌‌‍⁤')::remove('Unknown')}{stream.encode::replace('HEVC','⁣‌‌‍‌‍‍‍‍⁤')::replace('XviD','⁣‌‌‍‍‌‌‌‍⁤')::replace('DivX','⁣‌‌‍‍‌‌‍‌⁤')::replace('AV1','⁣‌‌‍‌‍‍‍‌⁤')::replace('AVC','⁣‌‌‍‍‌‌‌‌⁤')::remove('Unknown','VC-1')}{stream.audioChannels::string::replace('7.1','⁣‌‌‌‍‌‍‌‍⁤')::replace('6.1','⁣‌‌‌‍‌‍‍‌⁤')::replace('5.1','⁣‌‌‌‍‌‍‍‍⁤')::replace('2.0','⁣‌‌‌‍‍‌‌‌⁤')::remove('Unknown',',')}{stream.rseMatched::string::~T1[\"⁣‌‍‌‍‌‌‌‌⁤\"||\"\"]}{stream.rseMatched::string::~T2[\"⁣‌‍‌‍‌‌‌‍⁤\"||\"\"]}{stream.rseMatched::string::~T3[\"⁣‌‍‌‍‌‌‍‌⁤\"||\"\"]}{stream.rseMatched::string::~T4[\"⁣‌‍‌‍‌‌‍‍⁤\"||\"\"]}{stream.rseMatched::string::~T5[\"⁣‌‍‌‍‌‍‌‌⁤\"||\"\"]}{stream.rseMatched::string::~T6[\"⁣‌‍‌‍‌‍‌‍⁤\"||\"\"]}{stream.rseMatched::string::~T7[\"⁣‌‍‌‍‌‍‍‌⁤\"||\"\"]}{stream.rseMatched::string::~T8[\"⁣‌‍‌‍‌‍‍‍⁤\"||\"\"]}{stream.seadex[\"⁣‌‌‍‍‌‍‍‍⁤\"||\"\"]}",
+        "description": "╭──── 𖤐 {stream.private[\"⚿ \"||\"\"]}{stream.freeleech[\"⇣ \"||\"\"]}{stream.proxied[\"⛊ \"||\"\"]}{stream.preloading[\"➤ \"||\"\"]}{?{stream.title::truncate(40)::smallcaps}?}{stream.date::exists[\" ⁽{stream.date::date('%Y')::superscript}⁾\"||\"{? ⁽{stream.year::superscript}⁾?}\"]}{?  {stream.seasonEpisode::join('·')}?} 𖤐 ────╮{stream.visualTags::exists::or::stream.duration::>0::or::metadata.episodeRuntime::>0::or::metadata.runtime::>0::or::stream.age::exists[\"\n│  \"||\"\"]}{?📡  {stream.network::smallcaps}  ?}{stream.duration::>0[\"⏱️  {stream.duration::time('[%-Hh ]%-Mm')} \"||\"\"]}{stream.duration::exists::isfalse::and::metadata.episodeRuntime::>0[\"⏱️  {metadata.episodeRuntime}m \"||\"\"]}{stream.duration::exists::isfalse::and::metadata.episodeRuntime::exists::isfalse::and::metadata.runtime::>0[\"⏱️  {metadata.runtime}m \"||\"\"]}{stream.audioTags::exists::or::stream.audioChannels::exists[\"\n│  \"||\"\"]}{?🎧  {stream.audioTags::lsort::join(' ⋅ ')}  ?}{?🔊  {stream.audioChannels::join(' ⋅ ')}?}{stream.languageEmojis::exists::or::stream.subtitleEmojis::exists::or::stream.dubbed[\"\n│  \"||\"\"]}{?🗣️  {stream.languageEmojis::slice(0,5)::join(' · ')}  ?}{stream.dubbed[\"· ᴅᴜʙ  \"||\"\"]}{?💬  {stream.subtitleEmojis::slice(0,5)::join(' · ')}?}\n{stream.size::>0::or::stream.folderSize::>0::or::stream.bitrate::>0::or::stream.encode::exists[\"\n│  \"||\"\"]}{stream.size::>0[\"💾  {stream.size::sbytes::smallcaps} \"||\"\"]}{stream.folderSize::>0[\"[{stream.folderSize::sbytes::smallcaps}] \"||\"\"]}{?· {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')}  ?}{?⚙️ {stream.encode}?}{stream.edition::exists::and::stream.edition::=IMAX::isfalse::or::stream.unrated::or::stream.upscaled[\"\\n│  \"||\"\"]}{stream.edition::exists::and::stream.edition::=IMAX::isfalse[\"🎬  {stream.edition::replace('IMAX','')::replace(' Edition','')::replace('Edition','')::smallcaps}  \"||\"\"]}{stream.unrated[\"· ᴜɴʀᴀᴛᴇᴅ  \"||\"\"]}{stream.upscaled[\"· ᴜᴘꜱᴄᴀʟᴇᴅ  \"||\"\"]}\n╰  🧩  {addon.name::smallcaps}{? [{service.shortName::smallcaps}]?}{stream.indexer::exists[\"🔍 ❯ {stream.indexer}\"||\"\"]}{?  🏷️ {stream.releaseGroup::truncate(16)::smallcaps}?}\n{stream.message::exists[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪꜰɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}\n"
+      }
+    }
+  },
+  "proxy": {
+    "id": "mediaflow",
+    "proxiedAddons": [],
+    "proxiedServices": []
+  },
+  "resultLimits": {
+    "resolution": 15
+  },
+  "size": {
+    "global": {
+      "movies": [
+        1,
+        100000000000
+      ],
+      "series": [
+        1,
+        100000000000
+      ],
+      "anime": [
+        1,
+        100000000000
+      ]
+    }
+  },
+  "hideErrors": true,
+  "hideErrorsForResources": [],
+  "statistics": {
+    "enabled": false,
+    "position": "top",
+    "statsToShow": [
+      "addon",
+      "filter"
+    ]
+  },
+  "tmdbAccessToken": "",
+  "yearMatching": {
+    "requestTypes": [],
+    "addons": []
+  },
+  "titleMatching": {
+    "requestTypes": [],
+    "addons": []
+  },
+  "seasonEpisodeMatching": {
+    "requestTypes": [],
+    "addons": []
+  },
+  "deduplicator": {
+    "enabled": true,
+    "excludeAddons": [],
+    "keys": [
+      "filename",
+      "infoHash"
+    ],
+    "cached": "single_result",
+    "uncached": "per_service",
+    "p2p": "single_result",
+    "merge": {
+      "fields": []
+    }
+  },
+  "autoPlay": {
+    "attributes": [
+      "service",
+      "resolution",
+      "quality",
+      "encode",
+      "audioTags",
+      "visualTags",
+      "languages",
+      "releaseGroup",
+      "size"
+    ]
+  },
+  "precacheNextEpisode": false,
+  "precacheSelector": "count(cached(streams)) == 0 ? uncached(streams) : []",
+  "precacheSingleStream": true,
+  "services": [
+    {
+      "id": "realdebrid",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "alldebrid",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "premiumize",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "debridlink",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "torbox",
+      "enabled": true,
+      "credentials": {
+        "apiKey": ""
+      }
+    },
+    {
+      "id": "offcloud",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "putio",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "easynews",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "easydebrid",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "pikpak",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "seedr",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "debrider",
+      "enabled": false,
+      "credentials": {
+        "apiKey": ""
+      }
+    },
+    {
+      "id": "stremio_nntp",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "nzbdav",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "altmount",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "stremthru_newz",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "aiostreams",
+      "enabled": false,
+      "credentials": {}
+    },
+    {
+      "id": "torrin",
+      "enabled": false,
+      "credentials": {}
+    }
+  ],
+  "presets": [
+    {
+      "type": "library",
+      "instanceId": "64d",
+      "enabled": true,
+      "options": {
+        "name": "Library",
+        "timeout": 7000,
+        "resources": [
+          "stream",
+          "catalog",
+          "meta"
+        ],
+        "services": [
+          "torbox"
+        ],
+        "mediaTypes": [
+          "movie",
+          "series"
+        ],
+        "sources": [
+          "torrent",
+          "nzb"
+        ],
+        "showRefreshActions": [
+          "catalog"
+        ],
+        "skipProcessing": true,
+        "hideStreams": false,
+        "useMultipleInstances": true
+      }
+    },
+    {
+      "type": "zilean",
+      "instanceId": "80e",
+      "enabled": true,
+      "options": {
+        "name": "ZL",
+        "timeout": 7000,
+        "mediaTypes": [],
+        "useMultipleInstances": false
+      }
+    },
+    {
+      "type": "the-pirate-bay",
+      "instanceId": "95f",
+      "enabled": true,
+      "options": {
+        "name": "TPB",
+        "timeout": 7000,
+        "mediaTypes": [],
+        "useMultipleInstances": false
+      }
+    },
+    {
+      "type": "therarbg",
+      "instanceId": "695",
+      "enabled": true,
+      "options": {
+        "name": "RBG",
+        "timeout": 7000,
+        "mediaTypes": [],
+        "useMultipleInstances": false
+      }
+    },
+    {
+      "type": "meteor",
+      "instanceId": "861",
+      "enabled": false,
+      "options": {
+        "name": "MET",
+        "timeout": 15000,
+        "resources": [
+          "stream",
+          "meta",
+          "catalog"
+        ],
+        "mediaTypes": [],
+        "includeP2P": false,
+        "removeTrash": false,
+        "useMultipleInstances": false,
+        "yourMedia": {
+          "enabled": false,
+          "legacyMode": false,
+          "sources": [
+            "torrent"
+          ],
+          "showStreams": false
+        }
+      }
+    }
+  ],
+  "catalogModifications": [
+    {
+      "id": "64d791b.aiostreams::library.torbox",
+      "type": "library",
+      "name": "TorBox",
+      "shuffle": false,
+      "enabled": true,
+      "usePosterService": false,
+      "hideable": true,
+      "searchable": true,
+      "addonName": "Library"
+    }
+  ],
+  "cacheAndPlay": {
+    "streamTypes": [
+      "usenet"
+    ]
+  },
+  "checkOwned": true,
+  "failover": {
+    "contentTypes": [
+      "usenet"
+    ]
+  }
+}
