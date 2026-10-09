@@ -19,10 +19,8 @@ A quick look at the finished setup — [watch the video](https://streamable.com/
 or open the full [presentation page](https://vladskz.github.io/nuvio-art/demo.html).
 
 ![Home & streaming rows](docs/assets/screenshots/01-home.png)
-![SkyShowtime Top 10](docs/assets/screenshots/02-skyshowtime.png)
-![Action genre](docs/assets/screenshots/03-action.png)
-![Horror detail](docs/assets/screenshots/04-horror.png)
-![Movie detail page](docs/assets/screenshots/05-apex.png)
+![Streaming Top 10 detail](docs/assets/screenshots/02-streaming.png)
+![Seasonal Specials](docs/assets/screenshots/03-seasonal.png)
 
 ## Structure
 
