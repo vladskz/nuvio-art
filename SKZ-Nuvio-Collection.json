@@ -166,7 +166,7 @@
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
         "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/netflix-color.png",
-        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/netflix.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/netflix-alt.jpg",
         "catalogSources": [
           {
             "type": "series",
@@ -233,7 +233,7 @@
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
         "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/prime-video-color.png",
-        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/prime-video.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/prime-video-alt.jpg",
         "catalogSources": [
           {
             "type": "series",
@@ -300,7 +300,7 @@
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
         "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/disney-plus-color.png",
-        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/disney-plus.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/disney-plus-alt.webp",
         "catalogSources": [
           {
             "type": "series",
@@ -353,7 +353,7 @@
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
         "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/apple-tv-color.png",
-        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/apple-tv.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/apple-tv-alt.jpg",
         "catalogSources": [
           {
             "type": "series",
@@ -394,7 +394,7 @@
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
         "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/hbo-max-color.png",
-        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/hbo-max.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/hbo-max-alt.jpg",
         "catalogSources": [
           {
             "type": "series",
@@ -435,7 +435,7 @@
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
         "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/Sky-Showtime-color.webp",
-        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/sky-showtime.png",
+        "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/sky-showtime-alt.jpg",
         "catalogSources": [
           {
             "type": "series",
