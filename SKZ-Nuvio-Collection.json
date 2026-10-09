@@ -165,7 +165,7 @@
         ],
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
-        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/netflix.png",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/netflix-color.png",
         "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/netflix.png",
         "catalogSources": [
           {
@@ -194,7 +194,8 @@
           }
         ],
         "focusGifEnabled": true,
-        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/netflix.webp"
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/netflix.webp",
+        "focusGifUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/focused/netflix-gif.gif"
       },
       {
         "id": "collections.streaming.prime-video",
@@ -231,7 +232,7 @@
         ],
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
-        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/prime-video.png",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/prime-video-color.png",
         "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/prime-video.png",
         "catalogSources": [
           {
@@ -260,7 +261,8 @@
           }
         ],
         "focusGifEnabled": true,
-        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/prime-video.webp"
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/prime-video.webp",
+        "focusGifUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/focused/prime-video-gif.gif"
       },
       {
         "id": "collections.streaming.disney-plus",
@@ -297,7 +299,7 @@
         ],
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
-        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/disney-plus.png",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/disney-plus-color.png",
         "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/disney-plus.png",
         "catalogSources": [
           {
@@ -326,7 +328,8 @@
           }
         ],
         "focusGifEnabled": true,
-        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/disney-plus.webp"
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/disney-plus.webp",
+        "focusGifUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/focused/disney-plus-gif.gif"
       },
       {
         "id": "collections.streaming.apple-tv",
@@ -349,7 +352,7 @@
         ],
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
-        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/apple-tv.png",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/apple-tv-color.png",
         "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/apple-tv.png",
         "catalogSources": [
           {
@@ -366,7 +369,8 @@
           }
         ],
         "focusGifEnabled": true,
-        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/apple-tv.webp"
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/apple-tv.webp",
+        "focusGifUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/focused/apple-tv-gif.gif"
       },
       {
         "id": "collections.streaming.hbo-max",
@@ -389,7 +393,7 @@
         ],
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
-        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/hbo-max.png",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/hbo-max-color.png",
         "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/hbo-max.png",
         "catalogSources": [
           {
@@ -406,7 +410,8 @@
           }
         ],
         "focusGifEnabled": true,
-        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/hbo-max.webp"
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/hbo-max.webp",
+        "focusGifUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/focused/hbo-max-gif.gif"
       },
       {
         "id": "collections.streaming.peacock",
@@ -429,7 +434,7 @@
         ],
         "hideTitle": true,
         "tileShape": "LANDSCAPE",
-        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/sky-showtime.png",
+        "titleLogoUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/logo/Sky-Showtime-color.webp",
         "coverImageUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/cover/sky-showtime.png",
         "catalogSources": [
           {
@@ -446,7 +451,8 @@
           }
         ],
         "focusGifEnabled": true,
-        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/sky-showtime.webp"
+        "heroBackdropUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/backdrop/sky-showtime.webp",
+        "focusGifUrl": "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art/collections/streaming/focused/sky-showtime-gif.gif"
       }
     ],
     "pinToTop": true,
