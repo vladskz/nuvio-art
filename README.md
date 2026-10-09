@@ -101,14 +101,59 @@ A complete, shareable Nuvio setup is included with all API keys blanked:
 | File | Purpose |
 |------|---------|
 | `SKZ-AIOMeta.json` | AIOMetadata addon config (catalogs + art providers) |
-| `SKZ-AIOS.json` | AIOStreams addon config (sources + debrid services) |
-| `SKZ-AIOS-Formatter.json` | AIOStreams formatter rules |
+| `SKZ-AIOS.json` | AIOStreams full config (sources + debrid + formatter) |
+| `SKZ-AIOS-Formatter.json` | AIOStreams formatter rules only |
 | `SKZ-Nuvio-Collection.json` | Nuvio collections pack, linked to this repo's art |
 
-To reuse it, paste your own keys into the `apiKeys` section of
-`SKZ-AIOMeta.json` (tmdb, mdblist, fanart, tvdb, …) and into the debrid
-`credentials` in `SKZ-AIOS.json`. The collection's `coverImageUrl`,
-`heroBackdropUrl`, and `titleLogoUrl` already point at this repo's jsDelivr URLs.
+## Using the files (tutorial)
+
+### 1. AIOMetadata
+
+1. Open the AIOMetadata configurator — either your self-hosted instance or a
+   hosted one (see [Hosters](#hosters) below).
+2. Open `SKZ-AIOMeta.json` and paste **your own keys** into `config.apiKeys`
+   (`tmdb`, `mdblist`, `fanart`, `tvdb`, …) — they ship blank.
+3. In the configurator, import / restore the JSON, then **Save** and deploy.
+
+### 2. AIOStreams
+
+Pick one of the two files:
+
+- **Full config (`SKZ-AIOS.json`)** — use this for a fresh setup. It contains
+  sources, debrid services and formatting. After importing, re-enter your
+  debrid credentials (`apiKey` fields are blanked in the template).
+- **Formatter only (`SKZ-AIOS-Formatter.json`)** — use this if you already
+  have a working AIOStreams instance and just want the formatting rules.
+
+Import the chosen JSON in the AIOStreams configurator (self-hosted or a hosted
+instance), then **Save** and deploy.
+
+### 3. Nuvio collections
+
+1. Open [nuvio.tv](https://nuvio.tv) and make sure the correct profile is selected.
+2. Go to **Collections** and import `SKZ-Nuvio-Collection.json`.
+3. Done — every cover, clear logo and backdrop in the pack already points at
+   this repo's jsDelivr URLs.
+
+### Hosters
+
+If you don't self-host, run AIOStreams / AIOMetadata on a community hosted
+instance — import the JSON from above on the hoster's `/configure` page.
+
+| Hoster | AIOStreams config | AIOMetadata config |
+|--------|-------------------|--------------------|
+| Midnight | https://aiostreamsfortheweebs.midnightignite.me/stremio/configure | https://aiometadatafortheweebs.midnightignite.me/configure/ |
+| Kuu | https://aiostreams.stremio.ru/stremio/configure | https://aiometadata.stremio.ru/configure/ |
+| Yeb | https://aiostreams.fortheweak.cloud/stremio/configure | https://aiometadata.fortheweak.cloud/configure/ |
+| Viren (official) | https://aiostreams.viren070.me/stremio/configure | https://aiometadata.viren070.me/configure/ |
+| ElfHosted | https://aiostreams.elfhosted.com/stremio/configure | https://aiometadata.elfhosted.com/configure |
+| ATBP | https://aio.atbphosting.com/stremio/configure | https://aiomd.atbphosting.com/configure |
+| Omni | https://aiostreams.12312023.xyz/stremio/configure | https://aiometadata.12312023.xyz/configure |
+| Wizaardd | https://aiostreams.forthewizards.uk/stremio/configure | https://aiometadata.forthewizards.uk/configure/ |
+
+Most hosters also run nightly/beta builds and a hosted **AIOManager** (e.g.
+IbbyLabs: https://aiomanager.ibbylabs.dev). For live uptime and the full list,
+see https://uptime.ibbylabs.dev/.
 
 ## Naming
 
