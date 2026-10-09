@@ -13,6 +13,17 @@ collections pack with your API keys pre-filled, then walks you through install:
 
 (Static page under `docs/`, served via GitHub Pages.)
 
+## Demo
+
+A quick look at the finished setup — [watch the video](https://streamable.com/xyjbik)
+or open the full [presentation page](https://vladskz.github.io/nuvio-art/demo.html).
+
+![Home & streaming rows](docs/assets/screenshots/01-home.png)
+![SkyShowtime Top 10](docs/assets/screenshots/02-skyshowtime.png)
+![Action genre](docs/assets/screenshots/03-action.png)
+![Horror detail](docs/assets/screenshots/04-horror.png)
+![Movie detail page](docs/assets/screenshots/05-apex.png)
+
 ## Structure
 
 ```

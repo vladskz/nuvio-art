@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nuvio Setup — Demo</title>
+<style>
+  :root {
+    --bg: #0b0d12;
+    --panel: #12151d;
+    --border: #262b38;
+    --text: #e7e9ee;
+    --muted: #8a93a6;
+    --accent: #7c5cff;
+    --accent-2: #4fd1c5;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: radial-gradient(1200px 600px at 50% -10%, #1b1533 0%, var(--bg) 55%); color: var(--text); font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 36px 20px 80px; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
+  .video { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: #000; margin-bottom: 28px; }
+  .video iframe, .video video { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
+  .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  @media (max-width: 640px) { .gallery { grid-template-columns: 1fr; } }
+  figure { margin: 0; background: var(--panel); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  figure img { display: block; width: 100%; height: auto; }
+  figcaption { padding: 10px 14px; font-size: 13px; color: var(--muted); }
+  a.back { color: var(--accent-2); text-decoration: none; font-size: 14px; }
+  a.back:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./">&larr; Setup wizard</a>
+  <h1>Nuvio Setup — Demo</h1>
+  <p class="sub">A quick look at the finished setup: dynamic backdrops, clear logos and collections.</p>
+
+  <div class="video">
+    <video src="assets/demo.mp4" autoplay muted loop playsinline controls poster="assets/screenshots/01-home.png" title="Nuvio setup demo"></video>
+  </div>
+  <p class="sub">Prefer Streamable? <a class="back" href="https://streamable.com/xyjbik" target="_blank" rel="noopener">Watch it there</a>.</p>
+
+  <div class="gallery">
+    <figure><img src="assets/screenshots/01-home.png" alt="Home and streaming rows"><figcaption>Home — streaming rows &amp; genres</figcaption></figure>
+    <figure><img src="assets/screenshots/02-skyshowtime.png" alt="SkyShowtime Top 10"><figcaption>SkyShowtime Top 10</figcaption></figure>
+    <figure><img src="assets/screenshots/03-action.png" alt="Action genre"><figcaption>Action genre</figcaption></figure>
+    <figure><img src="assets/screenshots/04-horror.png" alt="Horror"><figcaption>Horror detail</figcaption></figure>
+    <figure><img src="assets/screenshots/05-apex.png" alt="Movie detail"><figcaption>Movie detail page</figcaption></figure>
+  </div>
+</div>
+</body>
+</html>
