@@ -4,6 +4,15 @@ Image assets for the Nuvio collection setup (`catalogs.json`), plus the
 automation that regenerates **dynamic backdrops** from your MDBList/TMDB
 catalogs every month.
 
+## Setup wizard
+
+A one-page wizard that generates your AIOMetadata + AIOStreams configs and the
+collections pack with your API keys pre-filled, then walks you through install:
+
+**https://vladskz.github.io/nuvio-art/**
+
+(Static page under `docs/`, served via GitHub Pages.)
+
 ## Structure
 
 ```

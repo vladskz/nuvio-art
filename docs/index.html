@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nuvio Setup Wizard</title>
+<style>
+  :root {
+    --bg: #0b0d12;
+    --panel: #12151d;
+    --panel-2: #1a1e29;
+    --border: #262b38;
+    --text: #e7e9ee;
+    --muted: #8a93a6;
+    --accent: #7c5cff;
+    --accent-2: #4fd1c5;
+    --ok: #34d399;
+    --danger: #f87171;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: radial-gradient(1200px 600px at 50% -10%, #1b1533 0%, var(--bg) 55%);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px 80px; }
+  header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  header .dot { width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display: grid; place-items: center; font-weight: 800; }
+  h1 { font-size: 22px; margin: 0; }
+  .sub { color: var(--muted); font-size: 13px; margin: 2px 0 22px; }
+  .steps { display: flex; gap: 6px; margin-bottom: 22px; }
+  .steps .s { flex: 1; height: 4px; border-radius: 4px; background: var(--border); transition: background .2s; }
+  .steps .s.on { background: var(--accent); }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 16px; }
+  .card h2 { font-size: 15px; margin: 0 0 4px; }
+  .card .desc { color: var(--muted); font-size: 13px; margin: 0 0 16px; line-height: 1.5; }
+  label { display: block; font-size: 13px; color: var(--text); margin-bottom: 6px; }
+  .field { margin-bottom: 14px; }
+  .field .row { display: flex; align-items: center; gap: 8px; }
+  input[type=text], input[type=password], select {
+    width: 100%; background: var(--panel-2); border: 1px solid var(--border); color: var(--text);
+    border-radius: 8px; padding: 10px 12px; font-size: 14px; outline: none;
+  }
+  input:focus, select:focus { border-color: var(--accent); }
+  .hint { font-size: 12px; color: var(--muted); margin-top: 5px; }
+  .hint a { color: var(--accent-2); text-decoration: none; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 9px;
+    padding: 11px 18px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none;
+    background: var(--accent); color: #fff;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: var(--panel-2); border: 1px solid var(--border); color: var(--text); }
+  .btn.ok { background: var(--ok); color: #06251b; }
+  .actions { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; }
+  .downloads { display: flex; flex-direction: column; gap: 10px; margin: 14px 0; }
+  .downloads a { display: flex; justify-content: space-between; align-items: center; background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; color: var(--text); text-decoration: none; font-size: 14px; }
+  .downloads a:hover { border-color: var(--accent); }
+  .downloads a .tag { font-size: 11px; color: var(--muted); }
+  ol.guide { padding-left: 20px; margin: 0; }
+  ol.guide li { margin-bottom: 12px; line-height: 1.55; font-size: 14px; }
+  ol.guide code { background: var(--panel-2); border: 1px solid var(--border); border-radius: 6px; padding: 1px 6px; font-size: 12px; color: var(--accent-2); word-break: break-all; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; background: var(--panel-2); border: 1px solid var(--border); color: var(--muted); margin-left: 6px; }
+  .note { font-size: 12px; color: var(--muted); background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; margin-top: 14px; line-height: 1.5; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="dot">N</div>
+    <div>
+      <h1>Nuvio Setup Wizard</h1>
+      <div class="sub">Generate your AIOMetadata + AIOStreams configs and the collections pack, with your keys pre-filled.</div>
+    </div>
+  </header>
+
+  <div class="steps" id="steps"></div>
+  <main id="app"></main>
+</div>
+
+<script>
+const CDN = "https://cdn.jsdelivr.net/gh/vladskz/nuvio-art@main";
+
+const HOSTERS = [
+  { name: "Midnight",          aiostreams: "https://aiostreamsfortheweebs.midnightignite.me/stremio/configure", aiometadata: "https://aiometadatafortheweebs.midnightignite.me/configure/" },
+  { name: "Kuu",               aiostreams: "https://aiostreams.stremio.ru/stremio/configure",                    aiometadata: "https://aiometadata.stremio.ru/configure/" },
+  { name: "Yeb",               aiostreams: "https://aiostreams.fortheweak.cloud/stremio/configure",              aiometadata: "https://aiometadata.fortheweak.cloud/configure/" },
+  { name: "Viren (official)",  aiostreams: "https://aiostreams.viren070.me/stremio/configure",                  aiometadata: "https://aiometadata.viren070.me/configure/" },
+  { name: "ElfHosted",         aiostreams: "https://aiostreams.elfhosted.com/stremio/configure",                aiometadata: "https://aiometadata.elfhosted.com/configure" },
+  { name: "ATBP",              aiostreams: "https://aio.atbphosting.com/stremio/configure",                     aiometadata: "https://aiomd.atbphosting.com/configure" },
+  { name: "Omni",              aiostreams: "https://aiostreams.12312023.xyz/stremio/configure",                 aiometadata: "https://aiometadata.12312023.xyz/configure" },
+  { name: "Wizaardd",          aiostreams: "https://aiostreams.forthewizards.uk/stremio/configure",             aiometadata: "https://aiometadata.forthewizards.uk/configure/" }
+];
+
+// AIOMetadata API keys (field id -> label, hint link, optional flag)
+const META_KEYS = [
+  { id: "tmdb",          label: "TMDB API key",             link: "https://www.themoviedb.org/settings/api",      note: "Metadata + artwork. Free." },
+  { id: "mdblist",       label: "MDBList API key",          link: "https://mdblist.com/settings",                note: "Your mdblist.* catalogs." },
+  { id: "fanart",        label: "Fanart.tv API key",        link: "https://fanart.tv/get-an-api-key/",           note: "Better artwork. Optional." },
+  { id: "tvdb",          label: "TVDB API key",             link: "https://thetvdb.com/api-information",          note: "TV artwork fallback. Optional." },
+  { id: "gemini",        label: "Gemini API key",           link: "https://aistudio.google.com/app/apikey",      note: "AI descriptions. Optional." },
+  { id: "rpdb",          label: "RPDB key",                 link: "https://rpdb.media/pricing",                   note: "Rating posters. Optional." },
+  { id: "publicmetadb",  label: "publicmetadb key",         link: null,                                          note: "Advanced. Optional." }
+];
+
+const state = { step: 0, keys: {}, debrid: {}, aiostreamsHoster: HOSTERS[0].name, aiometadataHoster: HOSTERS[0].name };
+
+const $app = document.getElementById("app");
+const $steps = document.getElementById("steps");
+
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function renderSteps(){
+  const total = 3;
+  $steps.innerHTML = Array.from({length: total}, (_, i) =>
+    `<div class="s${i <= state.step ? ' on' : ''}"></div>`).join("");
+}
+
+function keyInput(id, placeholder){
+  const v = state.keys[id] || "";
+  return `<input type="password" id="key-${id}" placeholder="${esc(placeholder)}" value="${esc(v)}" autocomplete="off">`;
+}
+
+function renderStep0(){
+  const fields = META_KEYS.map(k => `
+    <div class="field">
+      <label>${esc(k.label)}</label>
+      ${keyInput(k.id, "leave blank to skip")}
+      <div class="hint">${esc(k.note)}${k.link ? ` · <a href="${esc(k.link)}" target="_blank" rel="noopener">get a key</a>` : ""}</div>
+    </div>`).join("");
+
+  $app.innerHTML = `
+    <div class="card">
+      <h2>AIOMetadata API keys</h2>
+      <p class="desc">These get written into <code>SKZ-AIOMeta.json</code>. Every field is optional — leave it blank to keep the default (or skip that service).</p>
+      ${fields}
+    </div>
+    <div class="actions">
+      <span></span>
+      <button class="btn" id="next0">Next: debrid &amp; hoster →</button>
+    </div>`;
+  document.getElementById("next0").onclick = () => { saveKeys(); state.step = 1; render(); };
+}
+
+function saveKeys(){
+  for (const k of META_KEYS) {
+    const el = document.getElementById("key-" + k.id);
+    if (el) state.keys[k.id] = el.value.trim();
+  }
+}
+
+function renderStep1(){
+  const hosterOptions = HOSTERS.map(h => `<option${h.name === state.aiostreamsHoster ? " selected" : ""}>${esc(h.name)}</option>`).join("");
+  const hosterOptions2 = HOSTERS.map(h => `<option${h.name === state.aiometadataHoster ? " selected" : ""}>${esc(h.name)}</option>`).join("");
+
+  $app.innerHTML = `
+    <div class="card">
+      <h2>AIOStreams debrid</h2>
+      <p class="desc">TorBox is enabled in the template. Enter a key to keep it on, or leave it blank and it stays disabled.</p>
+      <div class="grid2">
+        <div class="field">
+          <label>TorBox API key</label>
+          <input type="password" id="debrid-torbox" placeholder="leave blank to skip" value="${esc(state.debrid.torbox || "")}" autocomplete="off">
+          <div class="hint"><a href="https://torbox.app" target="_blank" rel="noopener">get a key</a></div>
+        </div>
+        <div class="field">
+          <label>Debrider API key</label>
+          <input type="password" id="debrid-debrider" placeholder="leave blank to skip" value="${esc(state.debrid.debrider || "")}" autocomplete="off">
+          <div class="hint">Other services (Real-Debrid, AllDebrid…) can be added later in the configurator.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Hosters</h2>
+      <p class="desc">Pick where you'll configure each addon. These are community hosted instances — pick the same or different ones.</p>
+      <div class="grid2">
+        <div class="field">
+          <label>AIOStreams hoster</label>
+          <select id="hoster-aiostreams">${hosterOptions}</select>
+        </div>
+        <div class="field">
+          <label>AIOMetadata hoster</label>
+          <select id="hoster-aiometadata">${hosterOptions2}</select>
+        </div>
+      </div>
+      <div class="note">Uptime &amp; the full hoster list: <a href="https://uptime.ibbylabs.dev/" target="_blank" rel="noopener">uptime.ibbylabs.dev</a></div>
+    </div>
+    <div class="actions">
+      <button class="btn ghost" id="back1">← Back</button>
+      <button class="btn" id="next1">Generate configs →</button>
+    </div>`;
+
+  document.getElementById("back1").onclick = () => { state.step = 0; render(); };
+  document.getElementById("next1").onclick = () => {
+    state.debrid.torbox = document.getElementById("debrid-torbox").value.trim();
+    state.debrid.debrider = document.getElementById("debrid-debrider").value.trim();
+    state.aiostreamsHoster = document.getElementById("hoster-aiostreams").value;
+    state.aiometadataHoster = document.getElementById("hoster-aiometadata").value;
+    state.step = 2; render(); generate();
+  };
+}
+
+function renderStep2(){
+  const aios = HOSTERS.find(h => h.name === state.aiostreamsHoster) || HOSTERS[0];
+  const aiom = HOSTERS.find(h => h.name === state.aiometadataHoster) || HOSTERS[0];
+
+  $app.innerHTML = `
+    <div class="card">
+      <h2>Your files are ready</h2>
+      <p class="desc">Download them, then follow the install steps below in order.</p>
+      <div class="downloads" id="downloads"><div class="note">Generating…</div></div>
+    </div>
+    <div class="card">
+      <h2>Install order</h2>
+      <ol class="guide">
+        <li><b>AIOMetadata</b> — open <code>${esc(aiom.aiometadata)}</code> and import <b>SKZ-AIOMeta.json</b>. At the end, copy the addon's <b>manifest URL</b>.</li>
+        <li><b>AIOStreams</b> — open <code>${esc(aios.aiostreams)}</code> and import <b>SKZ-AIOS.json</b>. At the end, copy the addon's <b>manifest URL</b>.</li>
+        <li><b>Nuvio</b> — on <a href="https://nuvio.tv" target="_blank" rel="noopener">nuvio.tv</a>, add both addons by pasting their manifest URLs.</li>
+        <li><b>Collections</b> — import <b>SKZ-Nuvio-Collection.json</b> in Nuvio's collections section (select your profile).</li>
+      </ol>
+      <div class="note">The collections pack already points at this repo's covers, logos and backdrops via jsDelivr — no manual art URLs needed.</div>
+    </div>
+    <div class="actions">
+      <button class="btn ghost" id="back2">← Back</button>
+      <button class="btn ok" id="restart">Start over</button>
+    </div>`;
+
+  document.getElementById("back2").onclick = () => { state.step = 1; render(); };
+  document.getElementById("restart").onclick = () => { state.step = 0; render(); };
+}
+
+async function fetchJson(path){
+  const r = await fetch(`${CDN}/${path}`);
+  if (!r.ok) throw new Error(`Failed to load ${path}: ${r.status}`);
+  return r.json();
+}
+
+function fillAiometa(cfg){
+  const keys = cfg && cfg.config && cfg.config.apiKeys;
+  if (!keys) return;
+  for (const k of META_KEYS) {
+    const v = state.keys[k.id];
+    if (v && k.id in keys) keys[k.id] = v;
+  }
+}
+
+function fillAios(cfg){
+  const services = cfg.services || [];
+  const torbox = services.find(s => s.id === "torbox");
+  if (torbox) {
+    if (state.debrid.torbox) { torbox.enabled = true; torbox.credentials = torbox.credentials || {}; torbox.credentials.apiKey = state.debrid.torbox; }
+    else { torbox.enabled = false; }
+  }
+  const debrider = services.find(s => s.id === "debrider");
+  if (debrider) {
+    if (state.debrid.debrider) { debrider.enabled = true; debrider.credentials = debrider.credentials || {}; debrider.credentials.apiKey = state.debrid.debrider; }
+    else { debrider.enabled = false; }
+  }
+}
+
+function downloadBlob(name, obj){
+  const blob = new Blob([JSON.stringify(obj, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  return `<a href="${url}" download="${esc(name)}"><span>${esc(name)}</span><span class="tag">JSON · download</span></a>`;
+}
+
+async function generate(){
+  const box = document.getElementById("downloads");
+  try {
+    const [aiometa, aios, collection] = await Promise.all([
+      fetchJson("SKZ-AIOMeta.json"),
+      fetchJson("SKZ-AIOS.json"),
+      fetchJson("SKZ-Nuvio-Collection.json")
+    ]);
+    fillAiometa(aiometa);
+    fillAios(aios);
+    box.innerHTML =
+      downloadBlob("SKZ-AIOMeta.json", aiometa) +
+      downloadBlob("SKZ-AIOS.json", aios) +
+      downloadBlob("SKZ-Nuvio-Collection.json", collection);
+  } catch (e) {
+    box.innerHTML = `<div class="note">Could not generate the files: ${esc(e.message)}</div>`;
+  }
+}
+
+function render(){ renderSteps(); if (state.step === 0) renderStep0(); else if (state.step === 1) renderStep1(); else renderStep2(); }
+
+render();
+</script>
+</body>
+</html>
