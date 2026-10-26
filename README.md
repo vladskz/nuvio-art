@@ -22,6 +22,21 @@ or open the full [presentation page](https://vladskz.github.io/nuvio-art/demo.ht
 ![Streaming Top 10 detail](docs/assets/screenshots/02-streaming.png)
 ![Seasonal Specials](docs/assets/screenshots/03-seasonal.png)
 
+## Nuvio badges
+
+A full set of custom badges for Nuvio release names — streaming services,
+resolution, quality, IMAX, visual (HDR / bit depth), audio, channels, languages
+and subtitles (**156 badges across 9 groups**).
+
+![Nuvio badges preview](docs/assets/badges-preview.png)
+
+Import them in the Nuvio badge editor (e.g. via
+[Badger](https://nintle.github.io/Badger/)) using this raw URL:
+
+```text
+https://raw.githubusercontent.com/vladskz/nuvio-art/main/badges/skzBadges.json
+```
+
 ## Structure
 
 ```
@@ -40,6 +55,8 @@ collections/
         ├── focused/         # focus GIFs (.gif)
         ├── backdrop/        # generated backdrops (.jpg + .webp)
         └── logo/            # clear logos
+badges/
+└── skzBadges.json           # Nuvio custom badges (156 across 9 groups)
 templates/
 ├── Nuvio-Collections.json   # folder definitions (copy of Collection.json)
 └── AIOMetadata.json         # catalog id -> TMDB discover params
